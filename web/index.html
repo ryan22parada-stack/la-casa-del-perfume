@@ -69,6 +69,42 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
   [data-screen-label="Historia completa"] > div:last-child { width:min(720px, 100%); margin:0 auto; border-radius:22px !important; margin-bottom:40px; }
   body { font-size:16px; }
 }
+
+.dk-brand{display:none}
+/* Desktop (PC / laptops): sidebar menu + wide layout */
+@media (min-width: 1024px) {
+  [data-screen-label="App"] > div:nth-child(2) { left:248px !important; right:0 !important; top:0 !important; bottom:0 !important; border:0 !important; background:transparent !important; }
+  [data-screen-label="App"] > div.dk-nav[style] { top:0 !important; bottom:0 !important; right:auto !important; width:248px !important; height:auto !important; padding:28px 16px !important; display:flex !important; flex-direction:column !important; gap:4px; border-top:0 !important; border-right:1px solid var(--lc-line); background:var(--lc-surface) !important; }
+  [data-screen-label="App"] > div.dk-nav[style] > button { flex-direction:row !important; justify-content:flex-start !important; gap:14px !important; padding:13px 16px !important; border-radius:12px; font-size:15px !important; }
+  [data-screen-label="App"] > div.dk-nav[style] > button:hover { background:color-mix(in srgb, var(--lc-accent) 10%, transparent); }
+  [data-screen-label="App"] > div.dk-nav[style] > button > span:last-child { margin-left:auto; width:6px !important; height:6px !important; }
+  [data-screen-label="App"]:not(:has(> .dk-nav)) > div:nth-child(2) { left:0 !important; }
+  .dk-visit .plate { max-width:520px; }
+  .dk-brand { display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; padding:0 8px 26px; margin-bottom:14px; border-bottom:1px solid var(--lc-line); }
+  .dk-brand img { width:92px; height:92px; border-radius:50%; object-fit:cover; border:1px solid var(--lc-accent); }
+  .dk-brand b { display:block; font-family:var(--font-heading); font-weight:400; font-size:22px; color:var(--lc-text); }
+  .dk-brand span { display:block; font-size:12px; color:var(--lc-muted); margin-top:4px; }
+  /* every screen: centred content up to 1180px */
+  [data-screen-label="App"] > div:nth-child(2) [data-screen-label]:not([data-screen-label="Ficha"]):not([data-screen-label="Historia completa"]) { padding-left:max(24px, calc((100% - 1180px) / 2)) !important; padding-right:max(24px, calc((100% - 1180px) / 2)) !important; padding-top:24px !important; padding-bottom:48px !important; }
+  [data-screen-label="Inicio"] > div:first-child { display:none !important; }
+  .dk-rows { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:24px; }
+  .dk-fams { display:grid !important; grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .dk-visit { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:32px; align-content:start; }
+  .dk-visit > div:first-child { grid-column:1 / -1; }
+  .dk-visit .plate img { max-height:70vh; object-fit:contain; }
+  /* perfume page: photo left (fixed), info right */
+  .dk-ficha { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:48px; align-content:start; padding:0 max(32px, calc((100% - 1240px) / 2)) 48px !important; }
+  .dk-ftop { grid-column:1 / -1; padding:20px 0 !important; }
+  .dk-hero { grid-column:1; grid-row:2 / span 2; position:sticky !important; top:20px; height:min(680px, calc(100vh - 120px)) !important; margin-top:0 !important; }
+  .dk-info { grid-column:2; padding:8px 0 0 !important; }
+  .dk-sim { grid-column:2; padding:14px 0 10px !important; }
+  [data-screen-label="Ficha"] h1 { font-size:54px !important; }
+  [data-screen-label="Historia completa"] { left:0; }
+}
+@media (min-width: 1400px) {
+  .dk-rows { grid-template-columns:repeat(3, minmax(0,1fr)); }
+  [data-screen-label="Inicio"] > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns:repeat(6, 1fr) !important; }
+}
 </style>
 </helmet>
 <div class="{{ themeClass }}" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;box-sizing:border-box;background:var(--lc-page);font-family:var(--font-body);transition:background .4s">
@@ -185,7 +221,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 </sc-if>
 
 <sc-if value="{{ showList }}" hint-placeholder-val="{{ false }}">
-<div style="margin-top:10px;border-top:1px solid var(--lc-line)">
+<div class="dk-rows" style="margin-top:10px;border-top:1px solid var(--lc-line)">
 <sc-for list="{{ listItems }}" as="r" hint-placeholder-count="8">
 <button onClick="{{ r.open }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 22px;border-bottom:1px solid var(--lc-line);width:100%" style-hover="background:var(--lc-surface)">
 <div style="height:62px;display:flex;align-items:center;justify-content:center"><sc-if value="{{ r.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ r.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:58px;max-width:55px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ r.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ r.shape }}" liq="{{ r.liq }}" cap="{{ r.cap }}" size="58" hint-size="42px,58px"></dc-import></sc-if></div>
@@ -202,13 +238,13 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
 <div data-screen-label="Ficha" style="position:absolute;inset:0;animation:lcIn .45s cubic-bezier(.2,.8,.2,1)">
 {{ bgBlobs }}
-<div style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding-bottom:40px;box-sizing:border-box">
-<div style="position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:10px 22px">
+<div class="dk-ficha" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding-bottom:40px;box-sizing:border-box">
+<div class="dk-ftop" style="position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:10px 22px">
 <button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:40px;height:40px;border-radius:50%;background:var(--lc-glass);backdrop-filter:blur(10px);border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="20"></lc-icon></button>
 <span style="padding:6px 12px;border-radius:999px;background:var(--lc-glass);backdrop-filter:blur(10px);border:1px solid var(--lc-line);font-size:12px;display:flex;gap:6px;align-items:center"><lc-icon name="{{ d.famIcon }}" size="14"></lc-icon>{{ d.famLabel }}</span>
 <button onClick="{{ replaySound }}" aria-label="Escuchar" style="all:unset;cursor:pointer;width:40px;height:40px;border-radius:50%;background:var(--lc-glass);backdrop-filter:blur(10px);border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)" style-hover="border-color:var(--lc-accent)"><lc-icon name="AudioLines" size="18"></lc-icon></button>
 </div>
-<div style="position:relative;height:380px;margin-top:-30px">
+<div class="dk-hero" style="position:relative;height:380px;margin-top:-30px">
 <sc-if value="{{ d.showBottleImg }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:40px 44px 58px;display:flex;align-items:center;justify-content:center"><img src="{{ d.photoSrc }}" alt="{{ d.name }}" loading="lazy" draggable="false" style="display:block;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 18px 26px rgba(0,0,0,.35));animation:lcIn .35s ease"></div></sc-if><sc-if value="{{ d.showBoxImg }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:46px 34px 62px;display:flex;align-items:center;justify-content:center"><img src="{{ d.boxSrc }}" alt="{{ d.boxAlt }}" loading="lazy" draggable="false" style="display:block;max-width:100%;max-height:100%;object-fit:contain;background:#fff;border-radius:18px;padding:10px;box-sizing:border-box;box-shadow:0 18px 34px rgba(0,0,0,.35);animation:lcIn .35s ease"></div></sc-if><sc-if value="{{ d.noPhotoD }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><dc-import name="FrascoMini" shape="{{ d.shape }}" liq="{{ d.liq }}" cap="{{ d.cap }}" size="260" hint-size="187px,260px"></dc-import></div></sc-if>
 <sc-for list="{{ bubbles }}" as="b" hint-placeholder-count="4">
 <div style="position:absolute;top:{{ b.top }};left:{{ b.left }};pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:4px;animation:lcFloat 4.5s ease-in-out infinite;animation-delay:{{ b.delay }}">
@@ -218,7 +254,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 </sc-for>
 <sc-if value="{{ d.hasBox }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--lc-glass);backdrop-filter:blur(8px);border:1px solid var(--lc-line);font-size:12.5px"><button onClick="{{ d.showBottle }}" aria-label="Ver frasco" style="all:unset;cursor:pointer;padding:6px 14px;border-radius:999px;color:{{ d.bottleFg }};background:{{ d.bottleBg }}">Frasco</button><button onClick="{{ d.showBox }}" aria-label="Ver con caja" style="all:unset;cursor:pointer;padding:6px 14px;border-radius:999px;color:{{ d.boxFg }};background:{{ d.boxBg }}">Con caja</button></div></sc-if>
 </div>
-<div style="padding:18px 24px 0">
+<div class="dk-info" style="padding:18px 24px 0">
 <div style="font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">{{ d.brand }}</div>
 <h1 style="margin:6px 0 0;font-family:var(--font-heading);font-weight:400;font-size:42px;line-height:1;color:var(--lc-text)">{{ d.name }}</h1>
 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
@@ -260,7 +296,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 <div style="font-size:11px;color:var(--lc-muted);text-align:center;margin-top:8px">Te respondemos desde el local con disponibilidad y precio</div>
 <div style="margin-top:32px;font-family:var(--font-heading);font-size:24px">Si te gusta, también…</div>
 </div>
-<div style="display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:14px 24px 10px">
+<div class="dk-sim" style="display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:14px 24px 10px">
 <sc-for list="{{ similar }}" as="sm" hint-placeholder-count="4">
 <button onClick="{{ sm.open }}" style="all:unset;cursor:pointer;flex:none;width:118px;display:flex;flex-direction:column;gap:8px">
 <div style="height:140px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);background:var(--lc-glass);display:flex;align-items:center;justify-content:center"><sc-if value="{{ sm.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ sm.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:96px;max-width:91px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ sm.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ sm.shape }}" liq="{{ sm.liq }}" cap="{{ sm.cap }}" size="96" hint-size="69px,96px"></dc-import></sc-if></div>
@@ -313,6 +349,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 <button onClick="{{ pt.on }}" style="all:unset;cursor:pointer;padding:9px 10px;font-size:13px;color:{{ pt.fg }};border-bottom:2px solid {{ pt.bd }};margin-bottom:-1px">{{ pt.label }}</button>
 </sc-for>
 </div>
+<div class="dk-rows">
 <sc-for list="{{ popList }}" as="p" hint-placeholder-count="8">
 <button onClick="{{ p.open }}" onMouseEnter="{{ p.hover }}" style="all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:44px 50px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 22px;border-bottom:1px solid var(--lc-line)" style-hover="background:var(--lc-surface)">
 <span style="font-family:var(--font-heading);font-size:34px;font-weight:400;color:var(--lc-accent);font-feature-settings:'tnum';line-height:1">{{ p.rankLabel }}</span>
@@ -321,6 +358,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:{{ p.trendColor }}"><lc-icon name="{{ p.trendIcon }}" size="17"></lc-icon><span style="font-size:10px">{{ p.trendLabel }}</span></div>
 </button>
 </sc-for>
+</div>
 </div>
 </sc-if>
 
@@ -379,7 +417,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 <p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--lc-muted)">{{ qRes.desc }}</p>
 <div style="margin-top:22px;font-family:var(--font-heading);font-size:22px">Elegidos para ti</div>
 </div>
-<div style="position:relative;margin-top:8px;border-top:1px solid var(--lc-line)">
+<div class="dk-rows" style="position:relative;margin-top:8px;border-top:1px solid var(--lc-line)">
 <sc-for list="{{ qResults }}" as="qr" hint-placeholder-count="6">
 <button onClick="{{ qr.open }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 22px;border-bottom:1px solid var(--lc-line);width:100%" style-hover="background:var(--lc-surface)">
 <div style="height:62px;display:flex;align-items:center;justify-content:center"><sc-if value="{{ qr.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ qr.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:58px;max-width:55px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ qr.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ qr.shape }}" liq="{{ qr.liq }}" cap="{{ qr.cap }}" size="58" hint-size="42px,58px"></dc-import></sc-if></div>
@@ -402,7 +440,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 <button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
 <div><div style="font-family:var(--font-heading);font-size:28px;line-height:1">Familias olfativas</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:3px">Toca una para escucharla y explorarla</div></div>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;padding:16px 22px 0">
+<div class="dk-fams" style="display:flex;flex-direction:column;gap:12px;padding:16px 22px 0">
 <sc-for list="{{ families }}" as="fm" hint-placeholder-count="8">
 <button onClick="{{ fm.on }}" onMouseEnter="{{ fm.hover }}" style="all:unset;box-sizing:border-box;cursor:pointer;position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;padding:18px 16px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);transition:transform .22s,border-color .2s" style-hover="border-color:var(--lc-accent);transform:translateY(-2px)" style-active="transform:scale(.97)">
 <div style="position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;background:{{ fm.orb }};filter:blur(26px);opacity:.6"></div>
@@ -416,7 +454,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 </sc-if>
 
 <sc-if value="{{ isVisit }}" hint-placeholder-val="{{ false }}">
-<div data-screen-label="Visítanos" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
+<div class="dk-visit" data-screen-label="Visítanos" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
 <div style="display:flex;align-items:center;gap:12px;padding:10px 22px 4px">
 <button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
 <div style="font-family:var(--font-heading);font-size:28px;line-height:1">Visítanos</div>
@@ -439,7 +477,8 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 </div>
 
 <sc-if value="{{ showTabs }}" hint-placeholder-val="{{ true }}">
-<div style="position:absolute;left:0;right:0;bottom:0;height:86px;padding:8px 18px 26px;box-sizing:border-box;display:grid;grid-template-columns:repeat(4,1fr);background:var(--lc-glass);backdrop-filter:blur(16px);border-top:1px solid var(--lc-line);z-index:40">
+<div class="dk-nav" style="position:absolute;left:0;right:0;bottom:0;height:86px;padding:8px 18px 26px;box-sizing:border-box;display:grid;grid-template-columns:repeat(4,1fr);background:var(--lc-glass);backdrop-filter:blur(16px);border-top:1px solid var(--lc-line);z-index:40">
+<div class="dk-brand"><img src="assets/logo.jpg" alt=""><div><b>La Casa del Perfume</b><span>C.C. Punto de Oro · Local 5</span></div></div>
 <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
 <button onClick="{{ tb.on }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;color:{{ tb.fg }};font-size:10.5px;transition:color .2s" style-active="transform:scale(.92)">
 <lc-icon name="{{ tb.icon }}" size="21"></lc-icon><span>{{ tb.label }}</span><span style="width:4px;height:4px;border-radius:50%;background:{{ tb.dot }}"></span>
