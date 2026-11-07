@@ -40,7 +40,8 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
   [data-screen-label="App"] { width:100vw !important; height:100vh !important; height:100dvh !important; border-radius:0 !important; box-shadow:none !important; }
   [data-screen-label="App"] > div:first-child { display:none !important; }
   [data-screen-label="App"] > div:nth-child(2) { top:10px !important; }
-  div[style*="width:134px;height:5px"] { display:none !important; }
+  div[style*="134px"][style*="opacity"][style*="z-index"] { display:none !important; }
+  [data-screen-label="App"] > div[style*="86px"] { height:66px !important; padding-bottom:6px !important; }
   div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch !important; }
 }
 </style>
