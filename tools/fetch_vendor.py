@@ -1,6 +1,6 @@
 """Downloads the CDN scripts and fonts the app uses, so the APK works fully offline."""
-import re, os, urllib.request
-WWW = "app/src/main/assets/www"
+import re, os, sys, urllib.request
+WWW = sys.argv[1] if len(sys.argv) > 1 else "web"
 UA = {"User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Mobile Safari/537.36"}
 def get(url):
     return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read()
@@ -18,13 +18,14 @@ for f in files:
 for css_path in [os.path.join(r, n) for r, _, ns in os.walk(WWW) for n in ns if n.endswith(".css")]:
     t = open(css_path, encoding="utf-8").read()
     for url in sorted(set(re.findall(r"https://fonts\.googleapis\.com/css2\?[^\"')\s]+", t))):
-        css = get(url).decode()
         os.makedirs(os.path.join(WWW, "vendor/fonts"), exist_ok=True)
+        fc = os.path.join(WWW, "vendor/fonts/fonts.css")
+        css = "" if os.path.exists(fc) else get(url).decode()
         for i, furl in enumerate(sorted(set(re.findall(r"https://fonts\.gstatic\.com/[^)\s]+", css)))):
             name = "f%03d_%s" % (i, os.path.basename(furl))
             open(os.path.join(WWW, "vendor/fonts", name), "wb").write(get(furl))
             css = css.replace(furl, name)
-        open(os.path.join(WWW, "vendor/fonts/fonts.css"), "w").write(css)
+        if css: open(fc, "w").write(css)
         rel = os.path.relpath(os.path.join(WWW, "vendor/fonts/fonts.css"), os.path.dirname(css_path))
         t = t.replace(url, rel)
         print("fonts ->", rel)

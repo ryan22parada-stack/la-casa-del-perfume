@@ -10,18 +10,23 @@ android {
         versionCode Integer.parseInt(System.getenv('VERSION_CODE') ?: '1')
         versionName '1.' + (System.getenv('VERSION_CODE') ?: '0')
     }
+    // Release key comes from the CI secrets KEYSTORE_B64 / KEYSTORE_PASSWORD.
+    // Without them the APK is signed with the debug key (fine for testing).
+    def ksFile = rootProject.file('ci-keystore.jks')
     signingConfigs {
         release {
-            storeFile file('../keystore/lacasa.jks')
-            storePassword 'lacasa-perfume'
-            keyAlias 'lacasa'
-            keyPassword 'lacasa-perfume'
+            if (ksFile.exists()) {
+                storeFile ksFile
+                storePassword System.getenv('KEYSTORE_PASSWORD')
+                keyAlias 'lacasa'
+                keyPassword System.getenv('KEYSTORE_PASSWORD')
+            }
         }
     }
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
+            signingConfig ksFile.exists() ? signingConfigs.release : signingConfigs.debug
         }
     }
     compileOptions {

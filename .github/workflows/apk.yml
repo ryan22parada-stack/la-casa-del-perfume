@@ -18,10 +18,18 @@ jobs:
         with:
           gradle-version: '8.7'
       - name: Descargar librerias y fuentes (modo sin internet)
-        run: python3 tools/fetch_vendor.py
+        run: |
+          rm -rf app/src/main/assets/www && cp -r web app/src/main/assets/www
+          python3 tools/fetch_vendor.py app/src/main/assets/www
+      - name: Llave de firma (opcional)
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
+        run: |
+          if [ -n "$KEYSTORE_B64" ]; then echo "$KEYSTORE_B64" | base64 -d > ci-keystore.jks; fi
       - name: Compilar APK
         env:
           VERSION_CODE: ${{ github.run_number }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: gradle :app:assembleRelease --no-daemon --stacktrace
       - name: Renombrar
         run: cp app/build/outputs/apk/release/app-release.apk LaCasaDelPerfume.apk

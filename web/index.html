@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Catálogo de La Casa del Perfume: 321 fragancias, historias y pedidos por WhatsApp. C.C. Punto de Oro, Local 5, Barranquilla.">
+<meta name="theme-color" content="#14120f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="La Casa del Perfume">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="La Casa del Perfume">
+<meta property="og:description" content="321 fragancias con historias y pedido directo por WhatsApp.">
+<meta property="og:image" content="assets/icon-512.png">
+<title>La Casa del Perfume</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ds/classical-0920286b-eb72-4501-ad1e-6497945f09ed/styles.css">
+<script src="ds/classical-0920286b-eb72-4501-ad1e-6497945f09ed/ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script src="bottles-manifest.js"></script>
+<script src="stories-1.js"></script>
+<script src="stories-2.js"></script>
+<script src="stories-3.js"></script>
+<script src="stories-4.js"></script>
+<script src="stories-5.js"></script>
+<script src="stories-6.js"></script>
+<script src="stories-7.js"></script>
+<script src="catalog.js"></script>
+<script src="sensory.js"></script>
+<style>
+body{margin:0}
+a{color:var(--lc-accent,#b68235);text-decoration:none}a:hover{color:var(--lc-accent-strong,#7d5411)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--lc-accent);outline-offset:2px}
+.lc-dark{--lc-page:#0b0a09;--lc-bg:#14120f;--lc-surface:#1c1915;--lc-raise:#24201b;--lc-text:#f3efe6;--lc-muted:#b5ab9b;--lc-line:rgba(243,239,230,.13);--lc-accent:#e1ad66;--lc-accent-strong:#facb8d;--lc-press:#c28d41;--lc-glass:rgba(20,18,15,.72)}
+.lc-light{--lc-page:#d9d6d1;--lc-bg:#f3f2f2;--lc-surface:#eae9e9;--lc-raise:#ffffff;--lc-text:#201f1d;--lc-muted:#5b5752;--lc-line:rgba(32,31,29,.15);--lc-accent:#b68235;--lc-accent-strong:#7d5411;--lc-press:#a06f24;--lc-glass:rgba(243,242,242,.78)}
+@keyframes lcIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes lcDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,-24px) scale(1.15)}}
+@keyframes lcSheet{from{transform:translateY(100%)}to{transform:none}}
+@keyframes lcFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* Real devices: use the whole screen, no mock phone frame / fake status bar / home indicator */
+html, body { margin:0; min-height:100%; background:var(--lc-page, #0b0a09); }
+[data-screen-label="App"] { width:100vw !important; height:100vh !important; height:100dvh !important; border-radius:0 !important; box-shadow:none !important; }
+[data-screen-label="App"] > div:first-child { display:none !important; }
+[data-screen-label="App"] > div:nth-child(2) { top:env(safe-area-inset-top, 0px) !important; }
+div[style*="134px"][style*="opacity"][style*="z-index"] { display:none !important; }
+div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch !important; }
+[data-screen-label="App"] > div[style*="86px"] { height:calc(64px + env(safe-area-inset-bottom, 0px)) !important; padding:6px 18px calc(6px + env(safe-area-inset-bottom, 0px)) !important; }
+[data-screen-label="App"] > div:nth-child(2) > div > [data-screen-label] { padding-top:calc(env(safe-area-inset-top, 0px) + 8px); }
+
+/* PC / tablet landscape: centred reading column, roomier grids, menu centred */
+@media (min-width: 900px) {
+  [data-screen-label="App"] { background:radial-gradient(1200px 700px at 15% 0%, color-mix(in srgb, var(--lc-accent) 10%, transparent), transparent 60%), var(--lc-bg) !important; }
+  [data-screen-label="App"] > div:nth-child(2) { top:0 !important; left:max(0px, calc(50% - 420px)) !important; right:max(0px, calc(50% - 420px)) !important; bottom:64px !important; border-left:1px solid var(--lc-line); border-right:1px solid var(--lc-line); background:var(--lc-bg); }
+  [data-screen-label="App"]:not(:has(> div[style*="86px"])) > div:nth-child(2) { bottom:0 !important; }
+  [data-screen-label="App"] > div[style*="86px"] { height:64px !important; padding:6px max(18px, calc(50% - 300px)) !important; }
+  [data-screen-label="App"] > div:nth-child(2) [data-screen-label] { scrollbar-width:thin !important; }
+  [data-screen-label="Inicio"] > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns:repeat(3, 1fr) !important; }
+  [data-screen-label="Historia completa"] { inset:0 !important; align-items:center; }
+  [data-screen-label="Historia completa"] > div:last-child { width:min(720px, 100%); margin:0 auto; border-radius:22px !important; margin-bottom:40px; }
+  body { font-size:16px; }
+}
+</style>
+</helmet>
+<div class="{{ themeClass }}" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;box-sizing:border-box;background:var(--lc-page);font-family:var(--font-body);transition:background .4s">
+<div data-screen-label="App" style="position:relative;width:390px;height:844px;flex:none;border-radius:54px;overflow:hidden;background:var(--lc-bg);color:var(--lc-text);box-shadow:0 0 0 10px #0a0908,0 0 0 11px #3a342c,0 40px 90px rgba(0,0,0,.45);transition:background .4s,color .4s">
+
+<div style="position:absolute;top:0;left:0;right:0;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;z-index:50;font-size:15px;font-feature-settings:'tnum';pointer-events:none">
+<span style="font-weight:600">9:41</span>
+<div style="position:absolute;left:50%;top:11px;transform:translateX(-50%);width:122px;height:35px;border-radius:20px;background:#000"></div>
+<div style="display:flex;gap:6px;align-items:center"><lc-icon name="Signal" size="15"></lc-icon><lc-icon name="Wifi" size="15"></lc-icon><lc-icon name="BatteryFull" size="19"></lc-icon></div>
+</div>
+
+<div style="position:absolute;top:50px;left:0;right:0;bottom:0">
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="Inicio" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:6px 0 110px;box-sizing:border-box;animation:lcIn .45s cubic-bezier(.2,.8,.2,1)">
+<div style="display:flex;align-items:center;gap:12px;padding:8px 22px 0">
+<img src="assets/logo.jpg" alt="La Casa del Perfume" style="width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:50% 38%;border:1px solid var(--lc-accent);flex:none">
+<div style="flex:1;min-width:0"><div style="font-family:var(--font-heading);font-size:20px;line-height:1;letter-spacing:.04em">La Casa del Perfume</div><div style="font-size:11px;color:var(--lc-muted);margin-top:4px;font-style:italic">Una experiencia olfativa única en el corazón de la ciudad.</div></div>
+<button onClick="{{ toggleSound }}" aria-label="Sonido" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)" style-hover="border-color:var(--lc-accent)"><lc-icon name="{{ soundIcon }}" size="17"></lc-icon></button>
+<button onClick="{{ toggleTheme }}" aria-label="Tema" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)" style-hover="border-color:var(--lc-accent)"><lc-icon name="{{ themeIcon }}" size="17"></lc-icon></button>
+</div>
+<div style="padding:26px 22px 6px">
+<div style="font-family:var(--font-heading);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--lc-accent)">Una experiencia olfativa única</div>
+<h1 style="margin:10px 0 18px;font-family:var(--font-heading);font-weight:400;font-size:42px;line-height:1.02;color:var(--lc-text)">¿A qué quieres <em style="color:var(--lc-accent)">oler</em> hoy?</h1>
+<button onClick="{{ goSearch }}" style="all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;align-items:center;gap:10px;padding:13px 16px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);color:var(--lc-muted);font-size:14px" style-hover="border-color:var(--lc-accent)"><lc-icon name="Search" size="17"></lc-icon><span>Busca por nombre, marca o nota…</span></button>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:18px 22px 8px">
+<sc-for list="{{ channels }}" as="c" hint-placeholder-count="6">
+<button onClick="{{ c.go }}" onMouseEnter="{{ c.hover }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:16px;min-height:132px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);background:var(--lc-surface);transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .2s" style-hover="border-color:var(--lc-accent);transform:translateY(-3px)" style-active="transform:scale(.96)">
+<div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="width:40px;height:40px;border-radius:50%;border:1px solid var(--lc-accent);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)"><lc-icon name="{{ c.icon }}" size="18"></lc-icon></div><span style="font-family:var(--font-heading);font-size:13px;color:var(--lc-muted);font-feature-settings:'tnum'">{{ c.badge }}</span></div>
+<div><div style="font-family:var(--font-heading);font-size:21px;line-height:1.05;font-weight:600">{{ c.label }}</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:5px;line-height:1.35">{{ c.sub }}</div></div>
+</button>
+</sc-for>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:22px 22px 10px;border-top:1px solid var(--lc-line);margin-top:14px">
+<div><div style="font-family:var(--font-heading);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--lc-accent)">Del momento</div><div style="font-family:var(--font-heading);font-size:26px;margin-top:4px">Lo que todos piden</div></div>
+<button onClick="{{ goPopular }}" style="all:unset;cursor:pointer;font-size:13px;color:var(--lc-accent-strong);border-bottom:1px solid var(--lc-accent)">Ver ranking</button>
+</div>
+<div onScroll="{{ stripScroll }}" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 22px 12px;scrollbar-width:none">
+<sc-for list="{{ moment }}" as="m" hint-placeholder-count="5">
+<button onClick="{{ m.open }}" style="all:unset;cursor:pointer;flex:none;width:140px;scroll-snap-align:start;display:flex;flex-direction:column;gap:10px" style-active="transform:scale(.97)">
+<div style="position:relative;height:176px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);background:{{ m.glow }};display:flex;align-items:center;justify-content:center;overflow:hidden">
+<span style="position:absolute;top:8px;left:12px;font-family:var(--font-heading);font-size:30px;font-weight:400;color:var(--lc-accent);font-feature-settings:'tnum'">{{ m.rankLabel }}</span>
+<sc-if value="{{ m.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ m.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:118px;max-width:112px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ m.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ m.shape }}" liq="{{ m.liq }}" cap="{{ m.cap }}" size="118" hint-size="85px,118px"></dc-import></sc-if>
+</div>
+<div><div style="font-family:var(--font-heading);font-size:18px;line-height:1.1">{{ m.name }}</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:2px">{{ m.brand }}</div></div>
+</button>
+</sc-for>
+</div>
+<div style="margin:18px 22px 0;padding:16px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);display:flex;gap:14px;align-items:center">
+<lc-icon name="MapPin" size="22" style="color:var(--lc-accent)"></lc-icon>
+<div style="flex:1;font-size:12.5px;line-height:1.5"><div style="font-family:var(--font-heading);font-size:17px">Calle 34B #45c-40</div><div style="color:var(--lc-muted)">C.C. Punto de Oro, Local 5</div></div>
+<button onClick="{{ goVisit }}" style="all:unset;cursor:pointer;padding:9px 14px;border:1px solid var(--lc-accent);border-radius:var(--radius-md);font-size:13px;color:var(--lc-accent-strong)" style-hover="background:color-mix(in srgb,var(--lc-accent) 12%,transparent)">Visítanos</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCatalog }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Catálogo" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
+<div style="display:flex;align-items:center;gap:12px;padding:10px 22px 4px">
+<button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
+<div style="flex:1"><div style="font-family:var(--font-heading);font-size:28px;line-height:1">Catálogo</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:3px;font-feature-settings:'tnum'">{{ countLabel }}</div></div>
+<div style="display:flex;border:1px solid var(--lc-line);border-radius:var(--radius-md);overflow:hidden">
+<button onClick="{{ setFlow }}" aria-label="Carrusel" style="all:unset;cursor:pointer;width:38px;height:34px;display:flex;align-items:center;justify-content:center;color:{{ flowBtnColor }};background:{{ flowBtnBg }}"><lc-icon name="GalleryHorizontal" size="17"></lc-icon></button>
+<button onClick="{{ setList }}" aria-label="Lista" style="all:unset;cursor:pointer;width:38px;height:34px;display:flex;align-items:center;justify-content:center;color:{{ listBtnColor }};background:{{ listBtnBg }}"><lc-icon name="List" size="17"></lc-icon></button>
+</div>
+</div>
+<div style="padding:10px 22px 0"><div style="display:flex;align-items:center;gap:10px;padding:0 14px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);color:var(--lc-muted)"><lc-icon name="Search" size="16"></lc-icon><input ref="{{ searchRef }}" value="{{ q }}" onInput="{{ onSearch }}" placeholder="Nombre, marca o nota (ej. vainilla)" style="all:unset;flex:1;padding:12px 0;font-size:14px;color:var(--lc-text);font-family:var(--font-body)"></div></div>
+<div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:12px 22px 4px">
+<sc-for list="{{ famChips }}" as="ch" hint-placeholder-count="6">
+<button onClick="{{ ch.on }}" style="all:unset;cursor:pointer;flex:none;display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;border:1px solid {{ ch.bd }};color:{{ ch.fg }};font-size:12.5px;background:{{ ch.bg }};transition:all .2s" style-active="transform:scale(.95)"><span style="width:9px;height:9px;border-radius:50%;background:{{ ch.dot }}"></span>{{ ch.label }}</button>
+</sc-for>
+</div>
+<div style="display:flex;gap:8px;padding:8px 22px 0;flex-wrap:wrap">
+<sc-for list="{{ genChips }}" as="gc" hint-placeholder-count="4">
+<button onClick="{{ gc.on }}" style="all:unset;cursor:pointer;padding:5px 10px;font-size:12px;color:{{ gc.fg }};border-bottom:1px solid {{ gc.bd }}">{{ gc.label }}</button>
+</sc-for>
+<span style="width:1px;background:var(--lc-line);margin:4px 2px"></span>
+<sc-for list="{{ colChips }}" as="cc" hint-placeholder-count="4">
+<button onClick="{{ cc.on }}" style="all:unset;cursor:pointer;padding:5px 10px;font-size:12px;color:{{ cc.fg }};border-bottom:1px solid {{ cc.bd }}">{{ cc.label }}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="padding:60px 32px;text-align:center;color:var(--lc-muted)"><lc-icon name="SearchX" size="30"></lc-icon><div style="font-family:var(--font-heading);font-size:22px;color:var(--lc-text);margin-top:10px">Sin coincidencias</div><div style="font-size:13px;margin-top:6px">Prueba otra nota o quita un filtro.</div><button onClick="{{ clearFilters }}" style="all:unset;cursor:pointer;margin-top:16px;padding:9px 16px;border:1px solid var(--lc-accent);border-radius:var(--radius-md);color:var(--lc-accent-strong);font-size:13px">Limpiar filtros</button></div>
+</sc-if>
+
+<sc-if value="{{ showFlow }}" hint-placeholder-val="{{ true }}">
+<div onPointerDown="{{ pDown }}" onPointerMove="{{ pMove }}" onPointerUp="{{ pUp }}" onPointerLeave="{{ pUp }}" onWheel="{{ onWheel }}" style="position:relative;height:330px;margin-top:8px;perspective:900px;touch-action:pan-y;user-select:none;overflow:hidden">
+<div style="position:absolute;left:50%;top:46%;width:300px;height:300px;transform:translate(-50%,-50%);border-radius:50%;background:{{ cfGlow }};filter:blur(40px);opacity:.55;transition:background .5s"></div>
+<sc-for list="{{ flowItems }}" as="f" hint-placeholder-count="5">
+<div onClick="{{ f.onClick }}" style="position:absolute;left:50%;top:24px;width:170px;height:250px;display:{{ f.disp }};transform:{{ f.tf }};opacity:{{ f.op }};z-index:{{ f.z }};transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s;cursor:pointer">
+<div style="height:226px;display:flex;align-items:flex-end;justify-content:center;-webkit-box-reflect:below 3px linear-gradient(transparent 62%,rgba(255,255,255,.2))">
+<sc-if value="{{ f.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ f.photo }}" alt="" loading="lazy" decoding="async" draggable="false" style="display:block;max-height:206px;max-width:196px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ f.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ f.shape }}" liq="{{ f.liq }}" cap="{{ f.cap }}" size="206" hint-size="148px,206px"></dc-import></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="padding:0 22px">
+<div style="position:relative;height:1px;background:var(--lc-line);margin:0 0 16px"><div style="position:absolute;top:-2px;left:{{ cfPct }};width:24px;height:5px;margin-left:-12px;border-radius:3px;background:var(--lc-accent);transition:left .4s"></div></div>
+<div style="display:flex;align-items:center;gap:12px">
+<button onClick="{{ cfPrev }}" aria-label="Anterior" style="all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center;flex:none" style-hover="border-color:var(--lc-accent)" style-active="transform:scale(.92)"><lc-icon name="ChevronLeft" size="20"></lc-icon></button>
+<div style="flex:1;text-align:center;min-width:0">
+<div style="font-family:var(--font-heading);font-size:12px;letter-spacing:.18em;color:var(--lc-accent);font-feature-settings:'tnum'">{{ cfPos }}</div>
+<div style="font-family:var(--font-heading);font-size:28px;line-height:1.05;margin-top:4px">{{ cur.name }}</div>
+<div style="font-size:12.5px;color:var(--lc-muted);margin-top:4px">{{ cur.brand }} · {{ cur.ml }} ml</div>
+<div style="font-size:12px;color:var(--lc-accent-strong);margin-top:4px;font-style:italic">{{ cur.raw }}</div>
+</div>
+<button onClick="{{ cfNext }}" aria-label="Siguiente" style="all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center;flex:none" style-hover="border-color:var(--lc-accent)" style-active="transform:scale(.92)"><lc-icon name="ChevronRight" size="20"></lc-icon></button>
+</div>
+<button onClick="{{ openCur }}" style="all:unset;box-sizing:border-box;cursor:pointer;width:100%;margin-top:18px;padding:13px;text-align:center;border:1px solid var(--lc-accent);border-radius:var(--radius-md);color:var(--lc-accent-strong);font-size:14px;display:flex;justify-content:center;gap:8px;align-items:center" style-hover="background:color-mix(in srgb,var(--lc-accent) 12%,transparent)" style-active="background:color-mix(in srgb,var(--lc-accent) 22%,transparent)"><lc-icon name="Sparkles" size="17"></lc-icon>Ver detalles</button>
+<div style="font-size:11px;color:var(--lc-muted);text-align:center;margin-top:10px">Desliza, usa las flechas o la rueda del mouse</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showList }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:10px;border-top:1px solid var(--lc-line)">
+<sc-for list="{{ listItems }}" as="r" hint-placeholder-count="8">
+<button onClick="{{ r.open }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 22px;border-bottom:1px solid var(--lc-line);width:100%" style-hover="background:var(--lc-surface)">
+<div style="height:62px;display:flex;align-items:center;justify-content:center"><sc-if value="{{ r.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ r.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:58px;max-width:55px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ r.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ r.shape }}" liq="{{ r.liq }}" cap="{{ r.cap }}" size="58" hint-size="42px,58px"></dc-import></sc-if></div>
+<div style="min-width:0"><div style="font-family:var(--font-heading);font-size:19px;line-height:1.1">{{ r.name }}</div><div style="font-size:12px;color:var(--lc-muted);margin-top:2px">{{ r.brand }} · {{ r.ml }} ml</div><div style="font-size:11.5px;color:var(--lc-accent-strong);margin-top:3px;font-style:italic">{{ r.raw }}</div></div>
+<lc-icon name="ChevronRight" size="17"></lc-icon>
+</button>
+</sc-for>
+<sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}"><div style="padding:18px 22px"><button onClick="{{ loadMore }}" style="all:unset;box-sizing:border-box;cursor:pointer;width:100%;text-align:center;padding:12px;border:1px solid var(--lc-line);border-radius:var(--radius-md);font-size:13px" style-hover="border-color:var(--lc-accent)">Mostrar más ({{ moreCount }})</button></div></sc-if>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Ficha" style="position:absolute;inset:0;animation:lcIn .45s cubic-bezier(.2,.8,.2,1)">
+{{ bgBlobs }}
+<div style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding-bottom:40px;box-sizing:border-box">
+<div style="position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:10px 22px">
+<button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:40px;height:40px;border-radius:50%;background:var(--lc-glass);backdrop-filter:blur(10px);border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="20"></lc-icon></button>
+<span style="padding:6px 12px;border-radius:999px;background:var(--lc-glass);backdrop-filter:blur(10px);border:1px solid var(--lc-line);font-size:12px;display:flex;gap:6px;align-items:center"><lc-icon name="{{ d.famIcon }}" size="14"></lc-icon>{{ d.famLabel }}</span>
+<button onClick="{{ replaySound }}" aria-label="Escuchar" style="all:unset;cursor:pointer;width:40px;height:40px;border-radius:50%;background:var(--lc-glass);backdrop-filter:blur(10px);border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)" style-hover="border-color:var(--lc-accent)"><lc-icon name="AudioLines" size="18"></lc-icon></button>
+</div>
+<div style="position:relative;height:380px;margin-top:-30px">
+<sc-if value="{{ d.showBottleImg }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:40px 44px 58px;display:flex;align-items:center;justify-content:center"><img src="{{ d.photoSrc }}" alt="{{ d.name }}" loading="lazy" draggable="false" style="display:block;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 18px 26px rgba(0,0,0,.35));animation:lcIn .35s ease"></div></sc-if><sc-if value="{{ d.showBoxImg }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:46px 34px 62px;display:flex;align-items:center;justify-content:center"><img src="{{ d.boxSrc }}" alt="{{ d.boxAlt }}" loading="lazy" draggable="false" style="display:block;max-width:100%;max-height:100%;object-fit:contain;background:#fff;border-radius:18px;padding:10px;box-sizing:border-box;box-shadow:0 18px 34px rgba(0,0,0,.35);animation:lcIn .35s ease"></div></sc-if><sc-if value="{{ d.noPhotoD }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><dc-import name="FrascoMini" shape="{{ d.shape }}" liq="{{ d.liq }}" cap="{{ d.cap }}" size="260" hint-size="187px,260px"></dc-import></div></sc-if>
+<sc-for list="{{ bubbles }}" as="b" hint-placeholder-count="4">
+<div style="position:absolute;top:{{ b.top }};left:{{ b.left }};pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:4px;animation:lcFloat 4.5s ease-in-out infinite;animation-delay:{{ b.delay }}">
+<div style="width:46px;height:46px;border-radius:50%;background:var(--lc-glass);backdrop-filter:blur(8px);border:1px solid var(--lc-accent);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)"><lc-icon name="{{ b.icon }}" size="20"></lc-icon></div>
+<span style="font-size:10.5px;padding:2px 7px;border-radius:999px;background:var(--lc-glass);white-space:nowrap">{{ b.n }}</span>
+</div>
+</sc-for>
+<sc-if value="{{ d.hasBox }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--lc-glass);backdrop-filter:blur(8px);border:1px solid var(--lc-line);font-size:12.5px"><button onClick="{{ d.showBottle }}" aria-label="Ver frasco" style="all:unset;cursor:pointer;padding:6px 14px;border-radius:999px;color:{{ d.bottleFg }};background:{{ d.bottleBg }}">Frasco</button><button onClick="{{ d.showBox }}" aria-label="Ver con caja" style="all:unset;cursor:pointer;padding:6px 14px;border-radius:999px;color:{{ d.boxFg }};background:{{ d.boxBg }}">Con caja</button></div></sc-if>
+</div>
+<div style="padding:18px 24px 0">
+<div style="font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">{{ d.brand }}</div>
+<h1 style="margin:6px 0 0;font-family:var(--font-heading);font-weight:400;font-size:42px;line-height:1;color:var(--lc-text)">{{ d.name }}</h1>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+<sc-for list="{{ d.tags }}" as="t" hint-placeholder-count="3"><span style="font-size:11.5px;padding:4px 10px;border:1px solid var(--lc-line);border-radius:var(--radius-sm);background:var(--lc-glass)">{{ t }}</span></sc-for>
+</div>
+<figure style="margin:26px 0 0;padding:20px 0;border-top:1px solid var(--lc-accent);border-bottom:1px solid var(--lc-line)">
+<lc-icon name="Quote" size="20" style="color:var(--lc-accent)"></lc-icon>
+<blockquote style="margin:8px 0 0;font-family:var(--font-heading);font-style:italic;font-size:25px;line-height:1.22;text-wrap:pretty">{{ d.phrase }}</blockquote>
+</figure>
+<div style="margin-top:28px;display:flex;align-items:baseline;justify-content:space-between"><div style="font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">Pirámide olfativa</div><sc-if value="{{ d.genericNotes }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;color:var(--lc-muted);font-style:italic">Notas típicas de su familia</span></sc-if></div>
+<sc-for list="{{ d.tiers }}" as="tr" hint-placeholder-count="3">
+<div style="display:grid;grid-template-columns:78px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--lc-line)">
+<div><div style="font-family:var(--font-heading);font-size:19px">{{ tr.label }}</div><div style="font-size:10.5px;color:var(--lc-muted);margin-top:2px">{{ tr.sub }}</div></div>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ tr.notes }}" as="nt" hint-placeholder-count="3"><span style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px 6px 6px;border-radius:999px;border:1px solid var(--lc-line);background:var(--lc-glass);font-size:12.5px"><span style="width:24px;height:24px;border-radius:50%;border:1px solid var(--lc-accent);display:inline-flex;align-items:center;justify-content:center;color:var(--lc-accent)"><lc-icon name="{{ nt.icon }}" size="13"></lc-icon></span>{{ nt.n }}</span></sc-for>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{ d.hasStory }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:28px;font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">La historia</div>
+<div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:0;margin-top:12px;border-top:1px solid var(--lc-line);border-bottom:1px solid var(--lc-line)">
+<div style="padding:12px 18px 12px 0;border-right:1px solid var(--lc-line)"><div style="font-size:10.5px;color:var(--lc-muted);text-transform:uppercase;letter-spacing:.12em">Año</div><div style="font-family:var(--font-heading);font-size:26px;font-feature-settings:'tnum';margin-top:2px">{{ d.year }}</div></div>
+<div style="padding:12px 0 12px 18px"><div style="font-size:10.5px;color:var(--lc-muted);text-transform:uppercase;letter-spacing:.12em">La nariz detrás</div><div style="font-family:var(--font-heading);font-size:17px;line-height:1.2;margin-top:4px">{{ d.perfumer }}</div></div>
+</div>
+<p style="margin:14px 0 0;font-size:14.5px;line-height:1.65;text-align:justify;hyphens:auto">{{ d.story }}</p>
+</sc-if>
+<sc-if value="{{ d.noStory }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:28px;font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">Su carácter</div>
+<p style="margin:10px 0 0;font-size:14.5px;line-height:1.65;text-align:justify">{{ d.famDesc }}</p>
+</sc-if>
+<sc-if value="{{ d.hasMore }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ openMore }}" style="all:unset;box-sizing:border-box;cursor:pointer;margin-top:22px;width:100%;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;border-top:1px solid var(--lc-accent);border-bottom:1px solid var(--lc-line);background:var(--lc-glass)" style-hover="background:color-mix(in srgb,var(--lc-accent) 10%,var(--lc-bg))" style-active="transform:scale(.98)">
+<span style="width:44px;height:44px;border-radius:50%;border:1px solid var(--lc-accent);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)"><lc-icon name="BookOpen" size="19"></lc-icon></span>
+<span><span style="display:block;font-family:var(--font-heading);font-size:20px;line-height:1.1">Para los curiosos</span><span style="display:block;font-size:11.5px;color:var(--lc-muted);margin-top:3px">{{ d.moreSub }}</span></span>
+<lc-icon name="ChevronUp" size="18" style="color:var(--lc-accent)"></lc-icon>
+</button>
+</sc-if>
+<a href="{{ d.wa }}" target="_blank" rel="noopener" onClick="{{ waTap }}" style="box-sizing:border-box;margin-top:28px;width:100%;padding:15px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--lc-accent);border-radius:var(--radius-md);color:var(--lc-accent-strong);font-size:15px;background:var(--lc-glass)" style-hover="background:color-mix(in srgb,var(--lc-accent) 14%,var(--lc-bg))"><lc-icon name="MessageCircle" size="18"></lc-icon>Pedir por WhatsApp</a>
+<div style="font-size:11px;color:var(--lc-muted);text-align:center;margin-top:8px">Te respondemos desde el local con disponibilidad y precio</div>
+<div style="margin-top:32px;font-family:var(--font-heading);font-size:24px">Si te gusta, también…</div>
+</div>
+<div style="display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:14px 24px 10px">
+<sc-for list="{{ similar }}" as="sm" hint-placeholder-count="4">
+<button onClick="{{ sm.open }}" style="all:unset;cursor:pointer;flex:none;width:118px;display:flex;flex-direction:column;gap:8px">
+<div style="height:140px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);background:var(--lc-glass);display:flex;align-items:center;justify-content:center"><sc-if value="{{ sm.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ sm.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:96px;max-width:91px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ sm.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ sm.shape }}" liq="{{ sm.liq }}" cap="{{ sm.cap }}" size="96" hint-size="69px,96px"></dc-import></sc-if></div>
+<div style="font-family:var(--font-heading);font-size:16px;line-height:1.1">{{ sm.name }}</div><div style="font-size:11px;color:var(--lc-muted);margin-top:-4px">{{ sm.brand }}</div>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ moreOpen }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Historia completa" style="position:absolute;inset:-50px 0 0 0;z-index:70;display:flex;flex-direction:column;justify-content:flex-end">
+<div onClick="{{ closeMore }}" style="position:absolute;inset:0;background:rgba(10,9,8,.55);backdrop-filter:blur(3px);animation:lcIn .3s ease"></div>
+<div style="position:relative;max-height:86%;display:flex;flex-direction:column;background:var(--lc-bg);border-top:1px solid var(--lc-accent);border-radius:22px 22px 0 0;box-shadow:var(--shadow-lg);animation:lcSheet .45s cubic-bezier(.2,.8,.2,1)">
+<div style="display:flex;justify-content:center;padding:10px 0 4px"><span style="width:40px;height:4px;border-radius:2px;background:var(--lc-line)"></span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;padding:8px 24px 14px;border-bottom:1px solid var(--lc-line)">
+<div style="flex:1;min-width:0"><div style="font-family:var(--font-heading);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">{{ d.brand }}</div><div style="font-family:var(--font-heading);font-size:30px;line-height:1.05;margin-top:4px">{{ d.name }}</div></div>
+<button onClick="{{ closeMore }}" aria-label="Cerrar" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center;flex:none" style-hover="border-color:var(--lc-accent)"><lc-icon name="X" size="18"></lc-icon></button>
+</div>
+<div style="overflow-y:auto;scrollbar-width:none;padding:6px 24px 40px">
+<div style="margin-top:18px;font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">La historia completa</div>
+<sc-for list="{{ d.moreX }}" as="px" hint-placeholder-count="2"><p style="margin:12px 0 0;font-size:14.5px;line-height:1.7;text-align:justify;hyphens:auto">{{ px }}</p></sc-for>
+<sc-if value="{{ d.hasCurios }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:28px;font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">Curiosidades</div>
+<div style="margin-top:6px">
+<sc-for list="{{ d.moreC }}" as="cu" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid var(--lc-line)"><span style="font-family:var(--font-heading);font-size:22px;color:var(--lc-accent);font-feature-settings:'tnum';line-height:1">{{ cu.n }}</span><span style="font-size:13.5px;line-height:1.55">{{ cu.t }}</span></div></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ d.hasFaces }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:28px;font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">Rostros y celebridades</div>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+<sc-for list="{{ d.moreR }}" as="rf" hint-placeholder-count="2"><div style="display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--lc-line);border-radius:var(--radius-lg)"><span style="width:36px;height:36px;border-radius:50%;border:1px solid var(--lc-accent);display:flex;align-items:center;justify-content:center;color:var(--lc-accent);flex:none"><lc-icon name="Star" size="16"></lc-icon></span><span style="font-size:13.5px;line-height:1.45">{{ rf }}</span></div></sc-for>
+</div>
+</sc-if>
+<p style="margin:26px 0 0;font-size:11px;color:var(--lc-muted);font-style:italic;line-height:1.5">Datos de referencia recopilados de la casa perfumera y la prensa especializada; las notas pueden variar según la fuente.</p>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isPopular }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Más vendidas" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
+<div style="display:flex;align-items:center;gap:12px;padding:10px 22px 4px">
+<button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
+<div><div style="font-family:var(--font-heading);font-size:28px;line-height:1">Lo más vendido</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:3px">Tendencias del mercado + ventas del local</div></div>
+</div>
+<div style="display:flex;gap:4px;margin:14px 22px 4px;border-bottom:1px solid var(--lc-line)">
+<sc-for list="{{ popTabs }}" as="pt" hint-placeholder-count="3">
+<button onClick="{{ pt.on }}" style="all:unset;cursor:pointer;padding:9px 10px;font-size:13px;color:{{ pt.fg }};border-bottom:2px solid {{ pt.bd }};margin-bottom:-1px">{{ pt.label }}</button>
+</sc-for>
+</div>
+<sc-for list="{{ popList }}" as="p" hint-placeholder-count="8">
+<button onClick="{{ p.open }}" onMouseEnter="{{ p.hover }}" style="all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:44px 50px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 22px;border-bottom:1px solid var(--lc-line)" style-hover="background:var(--lc-surface)">
+<span style="font-family:var(--font-heading);font-size:34px;font-weight:400;color:var(--lc-accent);font-feature-settings:'tnum';line-height:1">{{ p.rankLabel }}</span>
+<div style="height:60px;display:flex;align-items:center;justify-content:center"><sc-if value="{{ p.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ p.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:56px;max-width:53px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ p.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ p.shape }}" liq="{{ p.liq }}" cap="{{ p.cap }}" size="56" hint-size="40px,56px"></dc-import></sc-if></div>
+<div style="min-width:0"><div style="font-family:var(--font-heading);font-size:19px;line-height:1.1">{{ p.name }}</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:2px">{{ p.brand }}</div><div style="font-size:10.5px;color:var(--lc-accent-strong);margin-top:4px;letter-spacing:.06em;text-transform:uppercase">{{ p.srcLabel }}</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:{{ p.trendColor }}"><lc-icon name="{{ p.trendIcon }}" size="17"></lc-icon><span style="font-size:10px">{{ p.trendLabel }}</span></div>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSoon }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Próximamente" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
+<div style="display:flex;align-items:center;gap:12px;padding:10px 22px 4px">
+<button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
+<div style="font-family:var(--font-heading);font-size:28px;line-height:1">En camino</div>
+</div>
+<div style="padding:36px 28px 0;text-align:center">
+<div style="width:84px;height:84px;margin:0 auto;border-radius:50%;border:1px dashed var(--lc-accent);display:flex;align-items:center;justify-content:center;color:var(--lc-accent)"><lc-icon name="Ship" size="34" stroke="1.2"></lc-icon></div>
+<div style="font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent);margin-top:22px">Próximamente</div>
+<h2 style="margin:8px 0 0;font-family:var(--font-heading);font-weight:400;font-size:36px;line-height:1.05">Nuevas fragancias cruzan el mar</h2>
+<p style="margin:14px auto 0;max-width:290px;font-size:14px;line-height:1.6;color:var(--lc-muted)">Muy pronto revelaremos aquí lo que viene en camino. Sé el primero en saberlo.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:30px 22px 0">
+<sc-for list="{{ soonSlots }}" as="ss" hint-placeholder-count="3">
+<div style="height:150px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:.85">
+<div style="filter:blur(3px) grayscale(.6);opacity:.6"><sc-if value="{{ ss.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ ss.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:72px;max-width:68px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ ss.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ ss.shape }}" liq="{{ ss.liq }}" cap="{{ ss.cap }}" size="72" hint-size="52px,72px"></dc-import></sc-if></div>
+<span style="font-family:var(--font-heading);font-size:13px;color:var(--lc-muted);font-feature-settings:'tnum'">{{ ss.label }}</span>
+</div>
+</sc-for>
+</div>
+<div style="padding:28px 22px 0"><a href="{{ waSoon }}" target="_blank" rel="noopener" style="box-sizing:border-box;width:100%;padding:14px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--lc-accent);border-radius:var(--radius-md);color:var(--lc-accent-strong);font-size:14.5px" style-hover="background:color-mix(in srgb,var(--lc-accent) 12%,transparent)"><lc-icon name="BellRing" size="17"></lc-icon>Avísame cuando lleguen</a></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isFinder }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Encuentra tu aroma" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
+{{ quizBlobs }}
+<div style="position:relative;display:flex;align-items:center;gap:12px;padding:10px 22px 4px">
+<button onClick="{{ quizBack }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
+<div style="flex:1"><div style="font-family:var(--font-heading);font-size:28px;line-height:1">Encuentra tu aroma</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:3px;font-feature-settings:'tnum'">{{ quizProgressLabel }}</div></div>
+</div>
+<div style="position:relative;height:1px;margin:10px 22px 0;background:var(--lc-line)"><div style="position:absolute;left:0;top:-1px;height:3px;width:{{ quizPct }};background:var(--lc-accent);transition:width .5s cubic-bezier(.2,.8,.2,1)"></div></div>
+<sc-if value="{{ quizAsking }}" hint-placeholder-val="{{ true }}">
+<div style="position:relative;padding:30px 22px 0">
+<div style="font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">{{ qStep.kicker }}</div>
+<h2 style="margin:8px 0 22px;font-family:var(--font-heading);font-weight:400;font-size:34px;line-height:1.05">{{ qStep.q }}</h2>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ qOpts }}" as="o" hint-placeholder-count="4">
+<button onClick="{{ o.on }}" onMouseEnter="{{ o.hover }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid {{ o.bd }};border-radius:var(--radius-lg);background:var(--lc-glass);transition:transform .2s,border-color .2s" style-hover="border-color:var(--lc-accent);transform:translateX(4px)" style-active="transform:scale(.97)">
+<span style="position:relative;width:42px;height:42px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--lc-accent);border:1px solid var(--lc-accent);background:{{ o.orb }}"><lc-icon name="{{ o.icon }}" size="19"></lc-icon></span>
+<span style="flex:1"><span style="display:block;font-family:var(--font-heading);font-size:20px;line-height:1.1">{{ o.l }}</span><span style="display:block;font-size:11.5px;color:var(--lc-muted);margin-top:3px">{{ o.sub }}</span></span>
+<lc-icon name="ChevronRight" size="16"></lc-icon>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ quizDone }}" hint-placeholder-val="{{ false }}">
+<div style="position:relative;padding:28px 22px 0">
+<div style="font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">Tu aroma es</div>
+<h2 style="margin:6px 0 0;font-family:var(--font-heading);font-weight:400;font-size:46px;line-height:1">{{ qRes.label }}</h2>
+<p style="margin:12px 0 0;font-family:var(--font-heading);font-style:italic;font-size:21px;line-height:1.25">{{ qRes.phrase }}</p>
+<p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--lc-muted)">{{ qRes.desc }}</p>
+<div style="margin-top:22px;font-family:var(--font-heading);font-size:22px">Elegidos para ti</div>
+</div>
+<div style="position:relative;margin-top:8px;border-top:1px solid var(--lc-line)">
+<sc-for list="{{ qResults }}" as="qr" hint-placeholder-count="6">
+<button onClick="{{ qr.open }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 22px;border-bottom:1px solid var(--lc-line);width:100%" style-hover="background:var(--lc-surface)">
+<div style="height:62px;display:flex;align-items:center;justify-content:center"><sc-if value="{{ qr.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ qr.photo }}" alt="" loading="lazy" draggable="false" style="display:block;max-height:58px;max-width:55px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))"></sc-if><sc-if value="{{ qr.noPhoto }}" hint-placeholder-val="{{ true }}"><dc-import name="FrascoMini" shape="{{ qr.shape }}" liq="{{ qr.liq }}" cap="{{ qr.cap }}" size="58" hint-size="42px,58px"></dc-import></sc-if></div>
+<div style="min-width:0"><div style="font-family:var(--font-heading);font-size:19px;line-height:1.1">{{ qr.name }}</div><div style="font-size:12px;color:var(--lc-muted);margin-top:2px">{{ qr.brand }}</div><div style="font-size:11.5px;color:var(--lc-accent-strong);margin-top:3px;font-style:italic">{{ qr.raw }}</div></div>
+<span style="font-family:var(--font-heading);font-size:15px;color:var(--lc-accent);font-feature-settings:'tnum'">{{ qr.match }}</span>
+</button>
+</sc-for>
+</div>
+<div style="position:relative;padding:20px 22px 0;display:flex;gap:10px">
+<button onClick="{{ quizRestart }}" style="all:unset;box-sizing:border-box;cursor:pointer;flex:1;text-align:center;padding:12px;border:1px solid var(--lc-line);border-radius:var(--radius-md);font-size:13.5px" style-hover="border-color:var(--lc-accent)">Repetir</button>
+<button onClick="{{ quizSeeFamily }}" style="all:unset;box-sizing:border-box;cursor:pointer;flex:1.4;text-align:center;padding:12px;border:1px solid var(--lc-accent);border-radius:var(--radius-md);color:var(--lc-accent-strong);font-size:13.5px" style-hover="background:color-mix(in srgb,var(--lc-accent) 12%,transparent)">Ver toda la familia</button>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ isFamilies }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Familias" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
+<div style="display:flex;align-items:center;gap:12px;padding:10px 22px 4px">
+<button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
+<div><div style="font-family:var(--font-heading);font-size:28px;line-height:1">Familias olfativas</div><div style="font-size:11.5px;color:var(--lc-muted);margin-top:3px">Toca una para escucharla y explorarla</div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;padding:16px 22px 0">
+<sc-for list="{{ families }}" as="fm" hint-placeholder-count="8">
+<button onClick="{{ fm.on }}" onMouseEnter="{{ fm.hover }}" style="all:unset;box-sizing:border-box;cursor:pointer;position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;padding:18px 16px;border:1px solid var(--lc-line);border-radius:var(--radius-lg);transition:transform .22s,border-color .2s" style-hover="border-color:var(--lc-accent);transform:translateY(-2px)" style-active="transform:scale(.97)">
+<div style="position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;background:{{ fm.orb }};filter:blur(26px);opacity:.6"></div>
+<span style="position:relative;width:48px;height:48px;flex:none;border-radius:50%;border:1px solid var(--lc-accent);display:flex;align-items:center;justify-content:center;color:var(--lc-accent);background:var(--lc-glass)"><lc-icon name="{{ fm.icon }}" size="21"></lc-icon></span>
+<span style="position:relative;flex:1;min-width:0"><span style="display:block;font-family:var(--font-heading);font-size:23px;line-height:1">{{ fm.label }}</span><span style="display:block;font-size:12px;color:var(--lc-muted);margin-top:5px;line-height:1.4">{{ fm.desc }}</span></span>
+<span style="position:relative;font-family:var(--font-heading);font-size:15px;color:var(--lc-accent);font-feature-settings:'tnum'">{{ fm.count }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isVisit }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Visítanos" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:0 0 110px;box-sizing:border-box;animation:lcIn .4s cubic-bezier(.2,.8,.2,1)">
+<div style="display:flex;align-items:center;gap:12px;padding:10px 22px 4px">
+<button onClick="{{ back }}" aria-label="Atrás" style="all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;border:1px solid var(--lc-line);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--lc-accent)"><lc-icon name="ChevronLeft" size="19"></lc-icon></button>
+<div style="font-family:var(--font-heading);font-size:28px;line-height:1">Visítanos</div>
+</div>
+<div style="padding:16px 22px 0"><div class="plate" style="padding:8px;border:1px solid var(--lc-line);border-radius:var(--radius-md);background:var(--lc-surface)"><img src="assets/logo.jpg" alt="La Casa del Perfume" style="display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px"></div></div>
+<div style="padding:22px 22px 0">
+<div style="font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">Ubicación de prestigio</div>
+<div style="font-family:var(--font-heading);font-size:28px;line-height:1.1;margin-top:6px">Calle 34B #45c-40</div>
+<div style="font-size:14px;color:var(--lc-muted);margin-top:4px">Centro Comercial Punto de Oro · Local 5</div>
+<p style="font-family:var(--font-heading);font-style:italic;font-size:19px;margin:16px 0 0;line-height:1.3">Una experiencia olfativa única en el corazón de la ciudad.</p>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:22px">
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Centro+Comercial+Punto+de+Oro+Calle+34B+45c-40" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--lc-accent);border-radius:var(--radius-md);color:var(--lc-accent-strong);font-size:14px" style-hover="background:color-mix(in srgb,var(--lc-accent) 12%,transparent)"><lc-icon name="Navigation" size="18"></lc-icon>Cómo llegar</a>
+<a href="{{ waGeneral }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--lc-line);border-radius:var(--radius-md);color:var(--lc-text);font-size:14px" style-hover="border-color:var(--lc-accent)"><lc-icon name="MessageCircle" size="18"></lc-icon>WhatsApp · +57 318 411 1212</a>
+<a href="https://instagram.com/lacasadelperfume_co" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--lc-line);border-radius:var(--radius-md);color:var(--lc-text);font-size:14px" style-hover="border-color:var(--lc-accent)"><lc-icon name="Instagram" size="18"></lc-icon>@LaCasaDelPerfume_Co</a>
+</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+<sc-if value="{{ showTabs }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:0;right:0;bottom:0;height:86px;padding:8px 18px 26px;box-sizing:border-box;display:grid;grid-template-columns:repeat(4,1fr);background:var(--lc-glass);backdrop-filter:blur(16px);border-top:1px solid var(--lc-line);z-index:40">
+<sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+<button onClick="{{ tb.on }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;color:{{ tb.fg }};font-size:10.5px;transition:color .2s" style-active="transform:scale(.92)">
+<lc-icon name="{{ tb.icon }}" size="21"></lc-icon><span>{{ tb.label }}</span><span style="width:4px;height:4px;border-radius:50%;background:{{ tb.dot }}"></span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:var(--lc-text);opacity:.85;z-index:60;pointer-events:none"></div>
+</div>
+</div>
+</x-dc>
+<script>if("serviceWorker"in navigator&&location.protocol==="https:"&&!/androidplatform/.test(location.host))addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultView&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;flow&quot;,&quot;list&quot;],&quot;default&quot;:&quot;flow&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const WA = '573184111212';
+const waLink = t => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+const STEPS = [
+  { key: 'g', kicker: 'Paso 1 de 4', q: '¿Para quién es?', opts: [
+    { l: 'Para ella', sub: 'Femeninos y unisex', v: 'F', icon: 'Flower2' },
+    { l: 'Para él', sub: 'Masculinos y unisex', v: 'M', icon: 'Mountain' },
+    { l: 'Para cualquiera', sub: 'Solo unisex', v: 'U', icon: 'Infinity' }] },
+  { key: 'fam', kicker: 'Paso 2 de 4', q: 'Cierra los ojos. ¿A dónde te lleva?', fam: true, opts: [
+    { l: 'El mar bajo la luna', v: 'acuatico', icon: 'Waves' },
+    { l: 'Un jardín en flor', v: 'floral', icon: 'Flower' },
+    { l: 'Un bosque tras la lluvia', v: 'amaderado', icon: 'Trees' },
+    { l: 'Un mercado de especias', v: 'oriental', icon: 'Flame' },
+    { l: 'Un huerto de limones', v: 'citrico', icon: 'Citrus' },
+    { l: 'Una pastelería en invierno', v: 'dulce', icon: 'CakeSlice' },
+    { l: 'Una canasta de frutas', v: 'frutal', icon: 'Cherry' },
+    { l: 'Un campo de lavanda', v: 'aromatico', icon: 'Sprout' }] },
+  { key: 't', kicker: 'Paso 3 de 4', q: '¿Cuándo lo vas a lucir?', opts: [
+    { l: 'De día, a diario', sub: 'Oficina, universidad, calor', v: 'day', icon: 'Sun' },
+    { l: 'De noche, para conquistar', sub: 'Citas, fiestas, cenas', v: 'night', icon: 'Moon' },
+    { l: 'En ocasiones especiales', sub: 'Algo que nadie más lleve', v: 'special', icon: 'Sparkles' }] },
+  { key: 'i', kicker: 'Paso 4 de 4', q: '¿Cómo quieres que te recuerden?', opts: [
+    { l: 'Un susurro cercano', sub: 'Suave, para quien se acerque', v: 1, icon: 'Feather' },
+    { l: 'Una presencia elegante', sub: 'Se nota sin invadir', v: 2, icon: 'Gem' },
+    { l: 'Una estela inolvidable', sub: 'Que pregunten qué llevas', v: 3, icon: 'Wind' }] }
+];
+const DAY = ['citrico', 'acuatico', 'aromatico', 'frutal', 'floral'], NIGHT = ['oriental', 'dulce', 'amaderado'];
+
+class Component extends DCLogic {
+  state = { screen: 'home', stack: [], theme: this.props.defaultTheme ?? 'dark', sound: true, q: '', fam: 'all', gen: 'all', col: 'all', view: this.props.defaultView ?? 'flow', cf: 0, listLimit: 40, detailId: null, step: 0, ans: {}, pop: 'all', ready: !!window.LC_DATA };
+  searchRef = React.createRef();
+  componentDidMount() {
+    if (!window.LC_DATA) this._t = setInterval(() => { if (window.LC_DATA) { clearInterval(this._t); this.setState({ ready: true }); } }, 80);
+    this._key = e => {
+      if (e.target && e.target.tagName === 'INPUT') return;
+      if (this.state.screen === 'catalog' && this.state.view === 'flow') {
+        if (e.key === 'ArrowRight') this.cfMove(1);
+        if (e.key === 'ArrowLeft') this.cfMove(-1);
+        if (e.key === 'Enter') this.openCur();
+      }
+      if (e.key === 'Escape' || e.key === 'Backspace') this.back();
+    };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() { clearInterval(this._t); window.removeEventListener('keydown', this._key); }
+  fx(kind, arg) {
+    const S = window.LCSense; if (!S) return;
+    if (!this.state.sound) { if (kind !== 'family') S.haptic(kind === 'tick' ? 6 : 10); return; }
+    S[kind] && S[kind](arg);
+  }
+  nav(screen, extra = {}) {
+    this.fx('select');
+    this.setState(s => ({ stack: [...s.stack, { screen: s.screen, detailId: s.detailId }].slice(-20), screen, ...extra }));
+    if (screen === 'catalog' && extra.focus) setTimeout(() => this.searchRef.current && this.searchRef.current.focus(), 350);
+  }
+  back = () => {
+    if (this.state.moreOpen) { this.fx('back'); this.setState({ moreOpen: false }); return; }
+    const st = this.state.stack; if (!st.length) { if (this.state.screen !== 'home') this.setState({ screen: 'home' }); return; }
+    this.fx('back'); const prev = st[st.length - 1];
+    this.setState({ stack: st.slice(0, -1), screen: prev.screen, detailId: prev.detailId });
+  };
+  open = id => {
+    const it = window.LC_DATA.byId[id]; if (!it) return;
+    this.nav('detail', { detailId: id, moreOpen: false, dview: 'box' });
+    if (this.state.sound) setTimeout(() => this.fx('family', it.fam), 220);
+  };
+  filtered() {
+    const D = window.LC_DATA, { q, fam, gen, col } = this.state;
+    const nq = q.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    return D.items.filter(it => (fam === 'all' || it.fams.includes(fam)) && (gen === 'all' || it.g === gen || (gen !== 'U' && it.g === 'U')) && (col === 'all' || it.col === col) && (!nq || nq.split(/\s+/).every(w => it.search.includes(w))));
+  }
+  cfMove(d) {
+    const n = this._n || 0; const next = Math.max(0, Math.min(n - 1, this.state.cf + d));
+    if (next !== this.state.cf) { this.setState({ cf: next }); this.fx('tick', d); }
+  }
+  openCur = () => { const it = (this._list || [])[this.state.cf]; if (it) this.open(it.id); };
+  setF(patch) { this.fx('tick'); this.setState({ ...patch, cf: 0, listLimit: 40 }); }
+  glow(it, a = 0.55) { const p = window.LC_DATA.FAM[it.fam].pal; return `radial-gradient(circle at 50% 62%, color-mix(in srgb, ${p[0]} ${Math.round(a * 100)}%, transparent), transparent 68%)`; }
+  preload(list, cf) {
+    const c = this._pre || (this._pre = new Set());
+    for (let i = Math.max(0, cf - 8); i <= Math.min(list.length - 1, cf + 12); i++) { const it = list[i]; if (!it || !it.photo) continue; const u = it.photo; if (c.has(u)) continue; c.add(u); const im = new Image(); im.decoding = 'async'; im.src = u; }
+  }
+  mini(it) { return { id: it.id, name: it.name, brand: it.brand, ml: it.ml, raw: it.raw, shape: it.shape, liq: it.liq, cap: it.cap, fam: it.fam, photo: it.photo || '', noPhoto: !it.photo }; }
+  blobs(pal, key) {
+    const pos = [['-20%', '-10%', 340], ['45%', '8%', 300], ['-10%', '48%', 320], ['40%', '62%', 280]];
+    return React.createElement('div', { key, style: { position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' } },
+      pos.map(([l, t, s], i) => React.createElement('div', { key: i, style: { position: 'absolute', left: l, top: t, width: s, height: s, borderRadius: '50%', background: pal[i % pal.length], filter: 'blur(60px)', opacity: this.state.theme === 'dark' ? 0.42 : 0.5, animation: `lcDrift ${11 + i * 3}s ease-in-out ${-i * 2}s infinite alternate` } })));
+  }
+  quizScore() {
+    const D = window.LC_DATA, a = this.state.ans;
+    return D.items.map(it => {
+      let s = 0;
+      if (it.fam === a.fam) s += 6; else if (it.fams.includes(a.fam)) s += 3;
+      if (a.g === 'U') s += it.g === 'U' ? 3 : -4; else if (it.g === a.g) s += 3; else if (it.g === 'U') s += 1.5; else s -= 6;
+      if (a.t === 'day' && DAY.includes(it.fam)) s += 2;
+      if (a.t === 'night' && NIGHT.includes(it.fam)) s += 2;
+      if (a.t === 'special' && it.col !== 'disenador') s += 2;
+      if (a.i === 3 && (it.col !== 'disenador' || NIGHT.includes(it.fam))) s += 1.5;
+      if (a.i === 1 && DAY.includes(it.fam)) s += 1.5;
+      if (it.rich) s += 1;
+      return { it, s };
+    }).sort((x, y) => y.s - x.s).slice(0, 6);
+  }
+  renderVals() {
+    const D = window.LC_DATA;
+    const st = this.state, scr = st.screen;
+    const base = { themeClass: 'lc-' + st.theme, isHome: scr === 'home', isCatalog: scr === 'catalog', isDetail: scr === 'detail', isPopular: scr === 'popular', isSoon: scr === 'soon', isFinder: scr === 'finder', isFamilies: scr === 'families', isVisit: scr === 'visit', moreOpen: false, showTabs: scr !== 'detail', back: this.back,
+      soundIcon: st.sound ? 'Volume2' : 'VolumeX', themeIcon: st.theme === 'dark' ? 'Sun' : 'Moon',
+      toggleSound: () => { this.setState({ sound: !st.sound }); if (!st.sound) setTimeout(() => window.LCSense && window.LCSense.select(), 30); },
+      toggleTheme: () => { this.fx('tick'); this.setState({ theme: st.theme === 'dark' ? 'light' : 'dark' }); },
+      waGeneral: waLink('Hola, La Casa del Perfume. Quisiera información sobre sus fragancias.'),
+      waSoon: waLink('Hola, La Casa del Perfume. Quiero que me avisen cuando lleguen las nuevas fragancias.') };
+    if (!D) return { ...base, channels: [], moment: [], tabs: [] };
+    const go = (s, x) => () => this.nav(s, x);
+    const tabDefs = [['home', 'Inicio', 'House'], ['catalog', 'Catálogo', 'GalleryHorizontal'], ['popular', 'Tendencias', 'TrendingUp'], ['finder', 'Tu aroma', 'Sparkles']];
+    const tabs = tabDefs.map(([k, l, ic]) => ({ label: l, icon: ic, fg: scr === k ? 'var(--lc-accent)' : 'var(--lc-muted)', dot: scr === k ? 'var(--lc-accent)' : 'transparent', on: () => { if (scr !== k) this.nav(k, k === 'finder' ? { step: 0, ans: {} } : {}); } }));
+    const hov = () => this.fx('tick');
+    const channels = [
+      { label: 'Catálogo', sub: 'Toda la colección en carrusel', icon: 'GalleryHorizontal', badge: String(D.items.length), go: go('catalog'), hover: hov },
+      { label: 'Lo más vendido', sub: 'Mercado + favoritos del local', icon: 'TrendingUp', badge: 'Top 20', go: go('popular'), hover: hov },
+      { label: 'En camino', sub: 'Lo que llega pronto', icon: 'Ship', badge: 'Pronto', go: go('soon'), hover: hov },
+      { label: 'Tu aroma', sub: '4 preguntas, tu perfume ideal', icon: 'Sparkles', badge: '1 min', go: go('finder', { step: 0, ans: {} }), hover: hov },
+      { label: 'Familias', sub: 'Explora por sensación', icon: 'Flower2', badge: '08', go: go('families'), hover: hov },
+      { label: 'Visítanos', sub: 'C.C. Punto de Oro, Local 5', icon: 'MapPin', badge: '', go: go('visit'), hover: hov }];
+    const moment = D.popular.slice(0, 10).map(p => { const it = D.byId[p.id]; return { ...this.mini(it), rankLabel: String(p.rank).padStart(2, '0'), glow: this.glow(it, .4), open: () => this.open(it.id) }; });
+    let vals = { ...base, tabs, channels, moment, goSearch: go('catalog', { focus: true }), goPopular: go('popular'), goVisit: go('visit'),
+      stripScroll: e => { const i = Math.round(e.currentTarget.scrollLeft / 154); if (i !== this._strip) { this._strip = i; this.fx('tick'); } } };
+
+    if (scr === 'catalog') {
+      const list = this._list = this.filtered(); const n = this._n = list.length; const cf = Math.min(st.cf, Math.max(0, n - 1));
+      const on = 'var(--lc-accent)', off = 'var(--lc-line)';
+      const famChips = [{ k: 'all', label: 'Todas', dot: 'var(--lc-accent)' }, ...D.ORDER.map(k => ({ k, label: D.FAM[k].label, dot: D.FAM[k].pal[0] }))].map(c => ({ ...c, bd: st.fam === c.k ? on : off, fg: st.fam === c.k ? 'var(--lc-accent-strong)' : 'var(--lc-text)', bg: st.fam === c.k ? 'color-mix(in srgb,var(--lc-accent) 12%,transparent)' : 'transparent', on: () => { this.setF({ fam: c.k }); if (c.k !== 'all') setTimeout(() => this.fx('family', c.k), 60); } }));
+      const seg = (key, defs) => defs.map(([k, l]) => ({ label: l, fg: st[key] === k ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', bd: st[key] === k ? 'var(--lc-accent)' : 'transparent', on: () => this.setF({ [key]: k }) }));
+      const cur = list[cf] || { name: '', brand: '', ml: '', raw: '' };
+      const R = 6, SLOTS = 2 * R + 1;
+      const flowItems = Array.from({ length: SLOTS }, () => ({ disp: 'none', op: 0, z: 0, tf: 'translateX(-50%)', photo: '', noPhoto: false, onClick: () => {} }));
+      for (let i = Math.max(0, cf - R); i <= Math.min(n - 1, cf + R); i++) { const it = list[i], o = i - cf, a = Math.abs(o), vis = a <= 4;
+        const tf = o === 0 ? 'translateX(-50%) translateZ(40px) rotateY(0deg)' : `translateX(calc(-50% + ${o * 62 + Math.sign(o) * 70}px)) translateZ(${-120 - a * 30}px) rotateY(${o < 0 ? 58 : -58}deg)`;
+        flowItems[((i % SLOTS) + SLOTS) % SLOTS] = { ...this.mini(it), tf, op: vis ? (a === 0 ? 1 : Math.max(0, .85 - a * .17)) : 0, z: 100 - a, disp: 'block', onClick: () => { if (this._dragged) return; o === 0 ? this.open(it.id) : (this.setState({ cf: i }), this.fx('tick', o)); } }; }
+      this.preload(list, cf);
+      vals = { ...vals, q: st.q, searchRef: this.searchRef, onSearch: e => this.setState({ q: e.target.value, cf: 0, listLimit: 40 }),
+        countLabel: `${n} de ${D.items.length} fragancias`, famChips, genChips: seg('gen', [['all', 'Todos'], ['F', 'Ella'], ['M', 'Él'], ['U', 'Unisex']]), colChips: seg('col', [['all', 'Todas'], ['disenador', 'Diseñador'], ['arabe', 'Árabes'], ['nicho', 'Nicho']]),
+        isEmpty: n === 0, showFlow: n > 0 && st.view === 'flow', showList: n > 0 && st.view === 'list',
+        clearFilters: () => this.setF({ q: '', fam: 'all', gen: 'all', col: 'all' }),
+        setFlow: () => { this.fx('tick'); this.setState({ view: 'flow' }); }, setList: () => { this.fx('tick'); this.setState({ view: 'list' }); },
+        flowBtnColor: st.view === 'flow' ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', flowBtnBg: st.view === 'flow' ? 'color-mix(in srgb,var(--lc-accent) 14%,transparent)' : 'transparent',
+        listBtnColor: st.view === 'list' ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', listBtnBg: st.view === 'list' ? 'color-mix(in srgb,var(--lc-accent) 14%,transparent)' : 'transparent',
+        flowItems, cur, cfPos: `${String(cf + 1).padStart(3, '0')} / ${String(n).padStart(3, '0')}`, cfPct: n > 1 ? `${(cf / (n - 1)) * 100}%` : '0%', cfGlow: cur.fam ? D.FAM[cur.fam].pal[0] : 'transparent',
+        cfPrev: () => this.cfMove(-1), cfNext: () => this.cfMove(1), openCur: this.openCur,
+        pDown: e => { this._px = e.clientX; this._p0 = e.clientX; this._dragged = false; this._pd = true; },
+        pMove: e => { if (!this._pd) return; const dx = e.clientX - this._px; if (Math.abs(e.clientX - this._p0) > 8) this._dragged = true; if (Math.abs(dx) > 46) { this.cfMove(dx < 0 ? 1 : -1); this._px = e.clientX; } },
+        pUp: () => { this._pd = false; setTimeout(() => { this._dragged = false; }, 30); },
+        onWheel: e => { this._wh = (this._wh || 0) + (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY); if (Math.abs(this._wh) > 60) { this.cfMove(this._wh > 0 ? 1 : -1); this._wh = 0; } },
+        listItems: list.slice(0, st.listLimit).map(it => ({ ...this.mini(it), open: () => this.open(it.id) })), hasMore: n > st.listLimit, moreCount: n - st.listLimit,
+        loadMore: () => { this.fx('tick'); this.setState({ listLimit: st.listLimit + 40 }); } };
+    }
+
+    if (scr === 'detail' && st.detailId) {
+      const it = D.byId[st.detailId], F = D.FAM[it.fam];
+      const gl = { F: 'Para ella', M: 'Para él', U: 'Unisex' }[it.g], cl = { disenador: 'Diseñador', arabe: 'Árabe', nicho: 'Nicho' }[it.col];
+      const all = it.notes.flat(); const pos = [['4%', '18%'], ['76%', '26%'], ['6%', '62%'], ['74%', '66%']];
+      const bubbles = all.slice(0, 4).map((nt, i) => ({ ...nt, left: pos[i][0], top: pos[i][1], delay: `${-i * 1.1}s` }));
+      const sims = D.items.filter(x => x.id !== it.id && x.fam === it.fam && (x.g === it.g || x.g === 'U' || it.g === 'U')).sort((a, b) => (b.rich - a.rich)).slice(0, 8);
+      vals = { ...vals, bgBlobs: this.blobs(F.pal, it.id), bubbles,
+        moreOpen: st.moreOpen && !!it.more, openMore: () => { this.fx('select'); this.setState({ moreOpen: true }); }, closeMore: () => { this.fx('back'); this.setState({ moreOpen: false }); },
+        d: { ...it, photoSrc: (st.dview === 'bottle' && it.bottle && it.withBox) ? it.bottle : (it.photo || ''), noPhotoD: !it.photo, hasBox: !!(it.photo && it.bottle && it.withBox), showBottleImg: !!it.photo, showBoxImg: false, boxSrc: '', boxAlt: it.name + ' con su caja', showBottle: () => { this.fx('tick'); this.setState({ dview: 'bottle' }); }, showBox: () => { this.fx('tick'); this.setState({ dview: 'box' }); }, bottleFg: st.dview === 'box' ? 'var(--lc-muted)' : 'var(--lc-accent-strong)', bottleBg: st.dview === 'box' ? 'transparent' : 'color-mix(in srgb,var(--lc-accent) 16%,transparent)', boxFg: st.dview === 'box' ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', boxBg: st.dview === 'box' ? 'color-mix(in srgb,var(--lc-accent) 16%,transparent)' : 'transparent', hasMore: !!it.more, moreSub: it.more ? [it.more.x.length ? 'Historia completa' : '', it.more.c.length ? it.more.c.length + ' curiosidades' : '', it.more.r.length ? 'rostros y celebridades' : ''].filter(Boolean).join(' · ') : '', moreX: it.more ? it.more.x : [], moreC: it.more ? it.more.c.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })) : [], moreR: it.more ? it.more.r : [], hasCurios: !!(it.more && it.more.c.length), hasFaces: !!(it.more && it.more.r.length), famIcon: F.icon, famDesc: F.desc, tags: [`${it.ml} ml`, gl, cl, it.raw], hasStory: !!it.story, noStory: !it.story, year: it.year || '—', perfumer: it.perfumer || 'Casa ' + it.brand,
+          tiers: [['Salida', 'Los primeros minutos'], ['Corazón', 'Durante horas'], ['Fondo', 'Lo que queda en la piel']].map(([label, sub], i) => ({ label, sub, notes: it.notes[i] || [] })),
+          wa: waLink(`Hola, La Casa del Perfume. Me interesa ${it.name} de ${it.brand} (${it.ml} ml). ¿Está disponible?`) },
+        replaySound: () => { if (!st.sound) { this.setState({ sound: true }); setTimeout(() => window.LCSense.family(it.fam), 30); } else this.fx('family', it.fam); },
+        waTap: () => this.fx('select'),
+        similar: sims.map(x => ({ ...this.mini(x), open: () => this.open(x.id) })) };
+    }
+
+    if (scr === 'popular') {
+      const srcL = { m: 'Tendencia mundial', l: 'Favorito del local', ml: 'Mundial · Local' };
+      const tr = { up: ['TrendingUp', 'Sube', 'var(--lc-accent)'], flat: ['Minus', 'Estable', 'var(--lc-muted)'], new: ['Sparkles', 'Nuevo', 'var(--lc-accent)'] };
+      const list = D.popular.filter(p => st.pop === 'all' || p.src.includes(st.pop));
+      vals = { ...vals, popTabs: [['all', 'Todas'], ['m', 'Mercado'], ['l', 'En el local']].map(([k, l]) => ({ label: l, fg: st.pop === k ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', bd: st.pop === k ? 'var(--lc-accent)' : 'transparent', on: () => { this.fx('tick'); this.setState({ pop: k }); } })),
+        popList: list.map(p => { const it = D.byId[p.id]; return { ...this.mini(it), rankLabel: String(p.rank).padStart(2, '0'), srcLabel: srcL[p.src], trendIcon: tr[p.trend][0], trendLabel: tr[p.trend][1], trendColor: tr[p.trend][2], open: () => this.open(it.id), hover: hov }; }) };
+    }
+
+    if (scr === 'soon') vals.soonSlots = [['rect', '#8a8a8a', 'gold'], ['round', '#9a9a9a', 'silver'], ['facet', '#7a7a7a', 'black']].map(([shape, liq, cap], i) => ({ shape, liq, cap, noPhoto: true, label: `N.º ${String(i + 1).padStart(2, '0')}` }));
+
+    if (scr === 'finder') {
+      const step = st.step, done = step >= STEPS.length, S = STEPS[Math.min(step, STEPS.length - 1)];
+      const famPal = st.ans.fam ? D.FAM[st.ans.fam].pal : ['#c28d41', '#3a270d', '#e1ad66'];
+      vals = { ...vals, quizAsking: !done, quizDone: done, qStep: S, quizPct: `${(Math.min(step, 4) / 4) * 100}%`, quizProgressLabel: done ? 'Resultado' : `${step + 1} / 4`,
+        quizBlobs: st.ans.fam ? this.blobs(famPal, 'q' + st.ans.fam) : null,
+        quizBack: () => { if (step > 0 && !done) { this.fx('back'); this.setState({ step: step - 1 }); } else if (done) { this.fx('back'); this.setState({ step: STEPS.length - 1 }); } else this.back(); },
+        qOpts: S.opts.map(o => { const F = S.fam ? D.FAM[o.v] : null; return { ...o, sub: o.sub || (F ? F.label : ''), bd: st.ans[S.key] === o.v ? 'var(--lc-accent)' : 'var(--lc-line)',
+          orb: F ? `radial-gradient(circle at 35% 35%, ${F.pal[1]}, ${F.pal[0]} 60%, ${F.pal[2]})` : 'transparent',
+          hover: () => { if (S.fam) this.fx('tick'); },
+          on: () => { if (S.fam) this.fx('family', o.v); else this.fx('select'); this.setState({ ans: { ...st.ans, [S.key]: o.v } }); setTimeout(() => this.setState(s => ({ step: s.step + 1 })), S.fam ? 650 : 280); } }; }) };
+      if (done) {
+        const F = D.FAM[st.ans.fam]; const res = this.quizScore(); const max = res[0] ? res[0].s : 1;
+        vals = { ...vals, qRes: { label: F.label, desc: F.desc, phrase: F.phrases[0] }, qResults: res.map(({ it, s }) => ({ ...this.mini(it), match: `${Math.round(Math.max(.6, s / max) * 100)}%`, open: () => this.open(it.id) })),
+          quizRestart: () => { this.fx('back'); this.setState({ step: 0, ans: {} }); }, quizSeeFamily: () => this.nav('catalog', { fam: st.ans.fam, gen: st.ans.g === 'U' ? 'U' : st.ans.g, col: 'all', q: '', cf: 0 }) };
+      }
+    }
+
+    if (scr === 'families') vals.families = D.ORDER.map(k => { const F = D.FAM[k]; return { label: F.label, desc: F.desc, icon: F.icon, count: String(D.items.filter(i => i.fams.includes(k)).length), orb: `radial-gradient(circle, ${F.pal[0]}, ${F.pal[2]})`, hover: hov, on: () => { this.fx('family', k); this.setState(s => ({ stack: [...s.stack, { screen: s.screen }], screen: 'catalog', fam: k, cf: 0, gen: 'all', col: 'all', q: '' })); } }; });
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

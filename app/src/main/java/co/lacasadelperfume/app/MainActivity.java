@@ -1,6 +1,8 @@
 package co.lacasadelperfume.app;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebResourceRequest;
@@ -42,12 +44,28 @@ public class MainActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest req) {
                 Uri u = req.getUrl();
-                return !"appassets.androidplatform.net".equals(u.getHost());
+                if ("appassets.androidplatform.net".equals(u.getHost())) return false;
+                openExternal(u);   // WhatsApp, Google Maps, Instagram, phone...
+                return true;
             }
         });
 
         if (savedInstanceState != null) web.restoreState(savedInstanceState);
         else web.loadUrl("https://appassets.androidplatform.net/assets/www/index.html");
+    }
+
+    /** Opens links that leave the catalogue in the right app (WhatsApp, Maps, Instagram) or the browser. */
+    private void openExternal(Uri u) {
+        try {
+            Intent i;
+            if ("intent".equals(u.getScheme())) i = Intent.parseUri(u.toString(), Intent.URI_INTENT_SCHEME);
+            else i = new Intent(Intent.ACTION_VIEW, u);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+        } catch (ActivityNotFoundException | java.net.URISyntaxException e) {
+            if (!"http".equals(u.getScheme()) && !"https".equals(u.getScheme())) return;
+            try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (Exception ignored) { }
+        }
     }
 
     @Override
