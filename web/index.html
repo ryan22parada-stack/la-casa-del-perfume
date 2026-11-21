@@ -70,6 +70,25 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
   body { font-size:16px; }
 }
 
+/* Phones (iPhone / Android): the whole page scrolls natively, like a normal website.
+   Gives full-strength momentum, lets the browser bars hide while scrolling, and uses the whole screen. */
+@media (max-width: 899px) {
+  html { height:auto !important; overflow-x:hidden; }
+  body { height:auto !important; min-height:100%; overflow:visible !important; }
+  body:has(.lc-dark) { background:#14120f; }
+  body:has(.lc-light) { background:#f3f2f2; }
+  div:has(> [data-screen-label="App"]) { display:block !important; height:auto !important; min-height:0 !important; overflow:visible !important; }
+  [data-screen-label="App"] { height:auto !important; min-height:100vh; min-height:100dvh !important; overflow:visible !important; }
+  [data-screen-label="App"] > div:nth-child(2) { position:relative !important; inset:auto !important; top:auto !important; overflow:visible !important; }
+  [data-screen-label="App"] > div:nth-child(2) > div:not([data-screen-label="Historia completa"]),
+  [data-screen-label="App"] > div:nth-child(2) [data-screen-label]:not([data-screen-label="Historia completa"]),
+  .dk-ficha { position:relative !important; inset:auto !important; height:auto !important; min-height:100dvh; overflow:visible !important; }
+  [data-screen-label="Ficha"] > div:first-child:not(.dk-ficha) { position:fixed !important; }
+  [data-screen-label="App"] > div.dk-nav[style] { position:fixed !important; z-index:60; -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); }
+  [data-screen-label="Historia completa"] { position:fixed !important; inset:0 !important; z-index:80 !important; }
+  [data-screen-label="Historia completa"] > div:last-child { overscroll-behavior:contain; }
+}
+
 .dk-brand{display:none}
 /* Desktop (PC / laptops): sidebar menu + wide layout */
 @media (min-width: 1024px) {
@@ -491,6 +510,16 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 </div>
 </div>
 </x-dc>
+<script>
+/* With page scrolling, start every new screen at the top (and avoid the browser restoring an old position). */
+(function(){ if ('scrollRestoration' in history) history.scrollRestoration='manual';
+  var last=''; new MutationObserver(function(){
+    if (innerWidth >= 900) return;
+    var s=[].slice.call(document.querySelectorAll('[data-screen-label]')).map(function(e){return e.getAttribute('data-screen-label')}).filter(function(n){return n!=='App'&&n!=='Historia completa'}).join('|');
+    if (s && s!==last){ last=s; window.scrollTo(0,0); }
+  }).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
 <script>if("serviceWorker"in navigator&&location.protocol==="https:"&&!/androidplatform/.test(location.host))addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
 <script type="text/x-dc" data-dc-script data-props="{&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultView&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;flow&quot;,&quot;list&quot;],&quot;default&quot;:&quot;flow&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const WA = '573184111212';
