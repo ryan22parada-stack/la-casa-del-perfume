@@ -97,6 +97,11 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
   .lc-bub > span { font-size:9.5px !important; }
 }
 
+/* 'Si te gusta, también…' row must keep its own height (it collapsed to 0 inside the page grid) */
+.dk-ftop { background:linear-gradient(var(--lc-bg) 55%, color-mix(in srgb, var(--lc-bg) 0%, transparent)); }
+.dk-sim { min-height:max-content; flex-shrink:0; align-items:flex-start; }
+.dk-sim > button { flex-shrink:0 !important; min-height:190px; }
+
 .dk-brand{display:none}
 /* Desktop (PC / laptops): sidebar menu + wide layout */
 @media (min-width: 1024px) {
@@ -121,7 +126,8 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
   .dk-visit .plate img { max-height:70vh; object-fit:contain; }
   /* perfume page: photo left (fixed), info right */
   .dk-ficha { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:48px; align-content:start; padding:0 max(32px, calc((100% - 1240px) / 2)) 48px !important; }
-  .dk-ftop { grid-column:1 / -1; padding:20px 0 !important; }
+  .dk-ftop { grid-column:1 / -1; padding:20px 0 !important; background:linear-gradient(var(--lc-bg) 65%, transparent); }
+  .dk-ficha { scroll-behavior:auto; overscroll-behavior:contain; padding-bottom:80px !important; }
   .dk-hero { grid-column:1; grid-row:2 / span 2; position:sticky !important; top:20px; height:min(680px, calc(100vh - 120px)) !important; margin-top:0 !important; }
   .dk-info { grid-column:2; padding:8px 0 0 !important; }
   .dk-sim { grid-column:2; padding:14px 0 10px !important; }
