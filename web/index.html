@@ -697,7 +697,13 @@ class Component extends DCLogic {
       const gl = { F: 'Para ella', M: 'Para él', U: 'Unisex' }[it.g], cl = { disenador: 'Diseñador', arabe: 'Árabe', nicho: 'Nicho' }[it.col];
       const all = it.notes.flat(); const pos = [['4%', '18%'], ['76%', '26%'], ['6%', '62%'], ['74%', '66%']];
       const bubbles = all.slice(0, 4).map((nt, i) => ({ ...nt, left: pos[i][0], top: pos[i][1], delay: `${-i * 1.1}s` }));
-      const sims = D.items.filter(x => x.id !== it.id && x.fam === it.fam && (x.g === it.g || x.g === 'U' || it.g === 'U')).sort((a, b) => (b.rich - a.rich)).slice(0, 8);
+      const gOk = x => x.g === it.g || x.g === 'U' || it.g === 'U';
+      let sims = D.items.filter(x => x.id !== it.id && x.fam === it.fam && gOk(x)).sort((a, b) => (b.rich - a.rich)).slice(0, 8);
+      if (sims.length < 4) { // few in this family: borrow perfumes that share any of its families
+        const fs = it.fams || [it.fam];
+        const more = D.items.filter(x => x.id !== it.id && !sims.includes(x) && gOk(x) && (x.fams || [x.fam]).some(f => fs.includes(f))).sort((a, b) => (b.rich - a.rich));
+        sims = sims.concat(more).slice(0, 8);
+      }
       vals = { ...vals, bgBlobs: this.blobs(F.pal, it.id), bubbles,
         moreOpen: st.moreOpen && !!it.more, openMore: () => { this.fx('select'); this.setState({ moreOpen: true }); }, closeMore: () => { this.fx('back'); this.setState({ moreOpen: false }); },
         d: { ...it, photoSrc: (st.dview === 'bottle' && it.bottle && it.withBox) ? it.bottle : (it.photo || ''), noPhotoD: !it.photo, hasBox: !!(it.photo && it.bottle && it.withBox), showBottleImg: !!it.photo, showBoxImg: false, boxSrc: '', boxAlt: it.name + ' con su caja', showBottle: () => { this.fx('tick'); this.setState({ dview: 'bottle' }); }, showBox: () => { this.fx('tick'); this.setState({ dview: 'box' }); }, bottleFg: st.dview === 'box' ? 'var(--lc-muted)' : 'var(--lc-accent-strong)', bottleBg: st.dview === 'box' ? 'transparent' : 'color-mix(in srgb,var(--lc-accent) 16%,transparent)', boxFg: st.dview === 'box' ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', boxBg: st.dview === 'box' ? 'color-mix(in srgb,var(--lc-accent) 16%,transparent)' : 'transparent', hasMore: !!it.more, moreSub: it.more ? [it.more.x.length ? 'Historia completa' : '', it.more.c.length ? it.more.c.length + ' curiosidades' : '', it.more.r.length ? 'rostros y celebridades' : ''].filter(Boolean).join(' · ') : '', moreX: it.more ? it.more.x : [], moreC: it.more ? it.more.c.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })) : [], moreR: it.more ? it.more.r : [], hasCurios: !!(it.more && it.more.c.length), hasFaces: !!(it.more && it.more.r.length), famIcon: F.icon, famDesc: F.desc, tags: [`${it.ml} ml`, gl, cl, it.raw], hasStory: !!it.story, noStory: !it.story, year: it.year || '—', perfumer: it.perfumer || 'Casa ' + it.brand,
