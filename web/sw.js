@@ -1,5 +1,5 @@
 // Offline cache: pages fresh from the network when online, images/scripts served from cache.
-const V = 'lcp-v8';
+const V = 'lcp-v9';
 self.addEventListener('install', e => self.skipWaiting());
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
