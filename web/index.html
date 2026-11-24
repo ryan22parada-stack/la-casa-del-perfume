@@ -34,6 +34,7 @@
 <script src="stories-6.js"></script>
 <script src="stories-7.js"></script>
 <script src="stories-extra.js"></script>
+<script src="stories-long.js"></script>
 <script src="catalog.js"></script>
 <script src="sensory.js"></script>
 <style>
@@ -360,6 +361,9 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 <div style="overflow-y:auto;scrollbar-width:none;padding:6px 24px 40px">
 <div style="margin-top:18px;font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">La historia completa</div>
 <sc-for list="{{ d.moreX }}" as="px" hint-placeholder-count="2"><p style="margin:12px 0 0;font-size:14.5px;line-height:1.7;text-align:justify;hyphens:auto">{{ px }}</p></sc-for>
+<sc-if value="{{ d.hasLong }}" hint-placeholder-val="{{ true }}">
+<sc-for list="{{ d.moreL }}" as="ls" hint-placeholder-count="4"><div style="margin-top:22px"><div style="font-family:var(--font-heading);font-size:21px;line-height:1.2;color:var(--lc-text)">{{ ls.t }}</div><p style="margin:8px 0 0;font-size:15px;line-height:1.75;text-align:left">{{ ls.p }}</p></div></sc-for>
+</sc-if>
 <sc-if value="{{ d.hasCurios }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:28px;font-family:var(--font-heading);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lc-accent)">Curiosidades</div>
 <div style="margin-top:6px">
@@ -713,7 +717,7 @@ class Component extends DCLogic {
       }
       vals = { ...vals, bgBlobs: this.blobs(F.pal, it.id), bubbles,
         moreOpen: st.moreOpen && !!it.more, openMore: () => { this.fx('select'); this.setState({ moreOpen: true }); }, closeMore: () => { this.fx('back'); this.setState({ moreOpen: false }); },
-        d: { ...it, photoSrc: (st.dview === 'bottle' && it.bottle && it.withBox) ? it.bottle : (it.photo || ''), noPhotoD: !it.photo, hasBox: !!(it.photo && it.bottle && it.withBox), showBottleImg: !!it.photo, showBoxImg: false, boxSrc: '', boxAlt: it.name + ' con su caja', showBottle: () => { this.fx('tick'); this.setState({ dview: 'bottle' }); }, showBox: () => { this.fx('tick'); this.setState({ dview: 'box' }); }, bottleFg: st.dview === 'box' ? 'var(--lc-muted)' : 'var(--lc-accent-strong)', bottleBg: st.dview === 'box' ? 'transparent' : 'color-mix(in srgb,var(--lc-accent) 16%,transparent)', boxFg: st.dview === 'box' ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', boxBg: st.dview === 'box' ? 'color-mix(in srgb,var(--lc-accent) 16%,transparent)' : 'transparent', hasMore: !!it.more, moreSub: it.more ? [it.more.x.length ? 'Historia completa' : '', it.more.c.length ? it.more.c.length + ' curiosidades' : '', it.more.r.length ? 'rostros y celebridades' : ''].filter(Boolean).join(' · ') : '', moreX: it.more ? it.more.x : [], moreC: it.more ? it.more.c.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })) : [], moreR: it.more ? it.more.r : [], hasCurios: !!(it.more && it.more.c.length), hasFaces: !!(it.more && it.more.r.length), famIcon: F.icon, famDesc: F.desc, tags: [`${it.ml} ml`, gl, cl, it.raw], hasStory: !!it.story, noStory: !it.story, year: it.year || '—', perfumer: it.perfumer || 'Casa ' + it.brand,
+        d: { ...it, photoSrc: (st.dview === 'bottle' && it.bottle && it.withBox) ? it.bottle : (it.photo || ''), noPhotoD: !it.photo, hasBox: !!(it.photo && it.bottle && it.withBox), showBottleImg: !!it.photo, showBoxImg: false, boxSrc: '', boxAlt: it.name + ' con su caja', showBottle: () => { this.fx('tick'); this.setState({ dview: 'bottle' }); }, showBox: () => { this.fx('tick'); this.setState({ dview: 'box' }); }, bottleFg: st.dview === 'box' ? 'var(--lc-muted)' : 'var(--lc-accent-strong)', bottleBg: st.dview === 'box' ? 'transparent' : 'color-mix(in srgb,var(--lc-accent) 16%,transparent)', boxFg: st.dview === 'box' ? 'var(--lc-accent-strong)' : 'var(--lc-muted)', boxBg: st.dview === 'box' ? 'color-mix(in srgb,var(--lc-accent) 16%,transparent)' : 'transparent', hasMore: !!it.more, moreSub: it.more ? [it.more.x.length ? 'Historia completa' : '', it.more.c.length ? it.more.c.length + ' curiosidades' : '', it.more.r.length ? 'rostros y celebridades' : ''].filter(Boolean).join(' · ') : '', moreX: ((window.LC_LONG || {})[it.id]) ? [] : (it.more ? it.more.x : []), moreL: ((window.LC_LONG || {})[it.id] || []).map((p, i) => ({ t: ['El origen', 'La idea detrás', 'Cómo evoluciona en tu piel', 'Cuándo y quién lo usa'][i] || '', p })), hasLong: !!(window.LC_LONG || {})[it.id], moreC: it.more ? it.more.c.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })) : [], moreR: it.more ? it.more.r : [], hasCurios: !!(it.more && it.more.c.length), hasFaces: !!(it.more && it.more.r.length), famIcon: F.icon, famDesc: F.desc, tags: [`${it.ml} ml`, gl, cl, it.raw], hasStory: !!it.story, noStory: !it.story, year: it.year || '—', perfumer: it.perfumer || 'Casa ' + it.brand,
           tiers: [['Salida', 'Los primeros minutos'], ['Corazón', 'Durante horas'], ['Fondo', 'Lo que queda en la piel']].map(([label, sub], i) => ({ label, sub, notes: it.notes[i] || [] })),
           wa: waLink(`Hola, La Casa del Perfume. Me interesa ${it.name} de ${it.brand} (${it.ml} ml). ¿Está disponible?`) },
         replaySound: () => { if (!st.sound) { this.setState({ sound: true }); setTimeout(() => window.LCSense.family(it.fam), 30); } else this.fx('family', it.fam); },
