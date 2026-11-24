@@ -119,6 +119,9 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
   /* every screen: centred content up to 1180px */
   [data-screen-label="App"] > div:nth-child(2) [data-screen-label]:not([data-screen-label="Ficha"]):not([data-screen-label="Historia completa"]) { padding-left:max(24px, calc((100% - 1180px) / 2)) !important; padding-right:max(24px, calc((100% - 1180px) / 2)) !important; padding-top:24px !important; padding-bottom:48px !important; }
   [data-screen-label="Inicio"] > div:first-child { display:none !important; }
+  /* bigger coverflow on PC */
+  .lc-flow { height:min(520px, calc(100vh - 380px)) !important; min-height:360px; }
+  .lc-flow > * { zoom:1.45; }
   .dk-rows { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:24px; }
   .dk-fams { display:grid !important; grid-template-columns:repeat(2, minmax(0,1fr)); }
   .dk-visit { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:32px; align-content:start; }
@@ -133,6 +136,10 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
   .dk-sim { grid-column:2; padding:14px 0 10px !important; }
   [data-screen-label="Ficha"] h1 { font-size:54px !important; }
   [data-screen-label="Historia completa"] { left:0; }
+}
+@media (min-width: 1024px) and (max-height: 820px) {
+  .lc-flow { height:390px !important; min-height:0; }
+  .lc-flow > * { zoom:1.12; }
 }
 @media (min-width: 1400px) {
   .dk-rows { grid-template-columns:repeat(3, minmax(0,1fr)); }
@@ -226,7 +233,7 @@ div:has(> [data-screen-label="App"]) { padding:0 !important; align-items:stretch
 </sc-if>
 
 <sc-if value="{{ showFlow }}" hint-placeholder-val="{{ true }}">
-<div onPointerDown="{{ pDown }}" onPointerMove="{{ pMove }}" onPointerUp="{{ pUp }}" onPointerLeave="{{ pUp }}" onWheel="{{ onWheel }}" style="position:relative;height:330px;margin-top:8px;perspective:900px;touch-action:pan-y;user-select:none;overflow:hidden">
+<div class="lc-flow" onPointerDown="{{ pDown }}" onPointerMove="{{ pMove }}" onPointerUp="{{ pUp }}" onPointerLeave="{{ pUp }}" onWheel="{{ onWheel }}" style="position:relative;height:330px;margin-top:8px;perspective:900px;touch-action:pan-y;user-select:none;overflow:hidden">
 <div style="position:absolute;left:50%;top:46%;width:300px;height:300px;transform:translate(-50%,-50%);border-radius:50%;background:{{ cfGlow }};filter:blur(40px);opacity:.55;transition:background .5s"></div>
 <sc-for list="{{ flowItems }}" as="f" hint-placeholder-count="5">
 <div onClick="{{ f.onClick }}" style="position:absolute;left:50%;top:24px;width:170px;height:250px;display:{{ f.disp }};transform:{{ f.tf }};opacity:{{ f.op }};z-index:{{ f.z }};transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s;cursor:pointer">
